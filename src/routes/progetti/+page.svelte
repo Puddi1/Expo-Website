@@ -8,11 +8,3 @@
         ["/", "Brands"],
     ]);
 </script>
-
-<main
-    class="bg-white w-screen h-screen flex items-center justify-center flex-col"
->
-    <h1 class="text-black">
-        Welcome to Expo Ghiaccio, gelato, proprio come te!
-    </h1>
-</main>

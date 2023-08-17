@@ -1,8 +1,14 @@
-<script>
+<script lang="ts">
     import "../app.postcss";
+
+    import Header from "./Header.svelte";
+    import ContactSection from "./ContactSection.svelte";
+    import Footer from "./Footer.svelte";
 </script>
 
-<header class="text-white">Header</header>
+<Header />
+
 <slot />
-<section class="text-white">Contact Section</section>
-<footer class="text-white">Footer</footer>
+
+<!-- <ContactSection /> -->
+<Footer />
