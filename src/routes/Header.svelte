@@ -23,6 +23,19 @@
         _headerList = e;
     });
 
+    import { t, locale, locales } from "$lib/i18n";
+    var languagesDropDownMenu: HTMLElement;
+    function changeLanguage(e: any) {
+        // change local order
+        locales[locales.indexOf(e.target.innerHTML)] = locales[0];
+        locales[0] = e.target.innerHTML;
+
+        // Set language
+        locale.set(locales[0]);
+
+        // clickout dropdown
+    }
+
     var headerSection: HTMLElement;
     var lastScrollPosition: number = 0;
 
@@ -115,6 +128,8 @@
                 headerSection.classList.add("shadow-2xl");
                 headerSection.classList.add("sm:bg-opacity-80");
             }
+
+            headerSection.classList.add("sm:bg-neutral-900");
         } else {
             headerSection.classList.add(
                 "bg-gradient-to-b",
@@ -186,11 +201,11 @@
 
     flex flex-col px-4 py-2 sm:p-header sm:flex-row justify-evenly sm:justify-between items-start sm:items-center sm:gap-2
 
-    sm:bg-neutral-900 sm:border-b-2 sm:border-b-white sm:border-opacity-0 sm:bg-opacity-80 sm:border-r-0 sm:-translate-x-0
+    sm:border-b-2 sm:border-b-white sm:border-opacity-0 sm:bg-opacity-80 sm:border-r-0 sm:-translate-x-0
 
     -translate-x-96
     
-    shadow-2xl transition-all"
+    transition-all"
     bind:this={headerSection}
     id="header"
 >
@@ -240,19 +255,30 @@
             </li>
 
             <li>
-                <ButtonHeader />
+                {#if _arredo}
+                    <ButtonHeader placeholder={$t("header.buttonArredo")} />
+                {:else if _cornici}
+                    <ButtonHeader placeholder={$t("header.buttonCornici")} />
+                {:else}
+                    <ButtonHeader placeholder={$t("header.buttonArredo")} />
+                {/if}
             </li>
 
             <ul
                 class="dropdown transition-all relative flex flex-col items-center justify-center hover:bg-expo cursor-pointer p-3"
             >
-                <li>IT</li>
+                <li>{locales[0]}</li>
                 <ul
-                    class="dropdown-menu opacity-0 bottom-0 transition-all absolute bg-expo px-4 py-2 flex sm:flex-col justify-center items-center gap-2"
+                    class="dropdown-menu opacity-0 bottom-96 transition-all absolute bg-expo px-4 py-2 flex sm:flex-col justify-center items-center gap-2"
+                    bind:this={languagesDropDownMenu}
                 >
-                    <li class="hover:underline clickable">DE</li>
-                    <li class="hover:underline clickable">FR</li>
-                    <li class="hover:underline clickable">EN</li>
+                    {#each locales as l, i}
+                        {#if i > 0}
+                            <button on:click={changeLanguage}>
+                                <li class="hover:underline clickable">{l}</li>
+                            </button>
+                        {/if}
+                    {/each}
                 </ul>
             </ul>
         </ul>
@@ -295,6 +321,6 @@
 <style>
     .dropdown:hover > .dropdown-menu {
         opacity: 1;
-        transform: translateY(100%);
+        transform: translateY(calc(99% + 24rem));
     }
 </style>

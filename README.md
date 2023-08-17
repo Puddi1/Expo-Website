@@ -14,6 +14,13 @@ CapRover
 git clone ..
 ```
 
+## todo
+
+write reademe
+
+1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
+1. deploy test
+
 ## create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

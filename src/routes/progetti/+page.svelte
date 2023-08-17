@@ -4,7 +4,11 @@
         ["/cornici", "Cornici"],
         ["/servizio", "Servizio"],
         ["/progetti", "Progetti"],
-        ["/", "Noi"],
-        ["/", "Brands"],
+        ["/#noi", "Noi"],
+        ["/#brands", "Brands"],
     ]);
 </script>
+
+<main class="flex items-center justify-center h-screen w-screen">
+    <div>Progetti</div>
+</main>

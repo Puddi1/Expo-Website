@@ -1,11 +1,13 @@
 <script lang="ts">
+    import { t } from "$lib/i18n";
     import { headerList } from "$lib/index";
     headerList.set([
-        ["/cornici", "Cornici"],
-        ["/servizio", "Servizio"],
-        ["/progetti", "Progetti"],
-        ["/", "Noi"],
-        ["/", "Brands"],
+        ["/", $t("header.arredo")],
+        ["/cornici", $t("header.cornici")],
+        ["/servizio", $t("header.servizio")],
+        ["/progetti", $t("header.progetti")],
+        ["/#noi", $t("header.noi")],
+        ["/#brands", $t("header.brands")],
     ]);
 </script>
 

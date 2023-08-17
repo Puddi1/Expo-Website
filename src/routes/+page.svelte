@@ -2,14 +2,16 @@
     import { onMount } from "svelte";
     import ButtonHome from "./ButtonHome.svelte";
 
+    import { t } from "$lib/i18n";
+
     import { homeOffsetHeight } from "$lib/index";
     import { headerList } from "$lib/index";
-    headerList.set([
-        ["/cornici", "Cornici"],
-        ["/servizio", "Servizio"],
-        ["/progetti", "Progetti"],
-        ["/", "Noi"],
-        ["/", "Brands"],
+    $: headerList.set([
+        ["/cornici", $t("header.cornici")],
+        ["/servizio", $t("header.servizio")],
+        ["/progetti", $t("header.progetti")],
+        ["/#noi", $t("header.noi")],
+        ["/#brands", $t("header.brands")],
     ]);
 
     import { arredo } from "$lib/index";
@@ -40,54 +42,12 @@
     >
         <img
             class="w-8/12 sm:w-4/12"
-            src="/home/expoArredo.svg"
+            src={$t("home.heroImageArredo")}
             alt="Expo Arredo Home Logo"
         />
 
         <div class="flex flex-col flex-wrap items-start justify-center gap-10">
-            <!-- <div
-                class="flex flex-col flex-wrap items-center justify-center text-justify gap-6 bg-blue-900 bg-opacity-80 border-2 border-white px-6 py-4 rounded-md"
-            >
-                <p class="flex items-center justify-center flex-wrap">
-                    Ridefiniamo ogni spazio presente nella tua vita, <br /> la
-                    nostra proposta è un nuovo modo di <br /> immaginare, organizzare,
-                    e vivere la casa in ogni suo spazio
-                </p>
-
-                <ul
-                    class="flex flex-col flex-wrap items-start justify-center gap-4"
-                >
-                    <li
-                        class="flex flex-row flex-wrap items-center justify-center gap-3"
-                    >
-                        <img src="/favicon/envelope.svg" alt="Envelope icon" />
-                        <a
-                            class="clickable hover:border-b-white hover:border-b-2 border-b-2 border-transparent transition-all"
-                            href="mailto:email@example.com"
-                            >info@expoarredo.ch</a
-                        >
-                    </li>
-                    <li
-                        class="flex flex-row flex-wrap items-center justify-center gap-3"
-                    >
-                        <img src="/favicon/phone.svg" alt="Phone icon" />
-                        <a
-                            class="clickable hover:border-b-white hover:border-b-2 border-b-2 border-transparent transition-all"
-                            href="tel:+41916461047">+41 91 646 10 47</a
-                        >
-                    </li>
-                    <li
-                        class="flex flex-row flex-wrap items-center justify-center gap-3"
-                    >
-                        <img src="/favicon/mapMaker.svg" alt="Map Maker icon" />
-                        <p>
-                            Via Vignalunga, 2c<br />6850 Mendrisio - Svizzera
-                        </p>
-                    </li>
-                </ul>
-            </div> -->
-
-            <ButtonHome />
+            <ButtonHome placeholder={$t("home.heroButtonArredo")} />
         </div>
     </div>
     <img
@@ -96,3 +56,10 @@
         alt="Home Cucina Background"
     />
 </main>
+
+<section id="noi" class="flex items-center justify-center h-screen w-screen">
+    <div>{$t("header.noi")}</div>
+</section>
+<section id="brands" class="flex items-center justify-center h-screen w-screen">
+    <div>{$t("header.brands")}</div>
+</section>

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { t } from "$lib/i18n";
     import { arredo, cornici } from "$lib/index";
     var _arredo: boolean = false;
     arredo.subscribe((e) => {
@@ -45,29 +46,33 @@
             <div class="flex flex-wrap px-4 border-l-2 border-l-slate-300">
                 <ul class="flex flex-col gap-5 flex-wrap">
                     {#if _arredo}
-                        <li class="border-b-2 border-white">Arredo</li>
+                        <li class="border-b-2 border-white">
+                            {$t("footer.arredo")}
+                        </li>
                         <li
                             class="border-b-2 border-transparent hover:border-white transition-all clickable"
                         >
-                            <a href="/cornici">Cornici</a>
+                            <a href="/cornici">{$t("footer.cornici")}</a>
                         </li>
                     {:else if _cornici}
                         <li
                             class="border-b-2 border-transparent hover:border-white transition-all clickable"
                         >
-                            <a href="/">Arredo</a>
+                            <a href="/">{$t("footer.arredo")}</a>
                         </li>
-                        <li class="border-b-2 border-white">Cornici</li>
+                        <li class="border-b-2 border-white">
+                            {$t("footer.cornici")}
+                        </li>
                     {:else}
                         <li
                             class="border-b-2 border-transparent hover:border-white transition-all clickable"
                         >
-                            <a href="/">Arredo</a>
+                            <a href="/">{$t("footer.arredo")}</a>
                         </li>
                         <li
                             class="border-b-2 border-transparent hover:border-white transition-all clickable"
                         >
-                            <a href="/cornici">Cornici</a>
+                            <a href="/cornici">{$t("footer.cornici")}</a>
                         </li>
                     {/if}
                 </ul>
@@ -77,7 +82,9 @@
                 class="flex items-center justify-center w-auto px-4 border-l-2 border-l-slate-300"
             >
                 <ul class="flex flex-col gap-5 justify-center items-start">
-                    <li class="border-b-2 border-white">Sezioni</li>
+                    <li class="border-b-2 border-white">
+                        {$t("footer.sezioni")}
+                    </li>
                     <ul
                         class="flex flex-col gap-2 justify-center items-start flex-wrap"
                     >
@@ -96,7 +103,9 @@
                 <ul
                     class="flex flex-col flex-wrap items-start justify-center gap-5"
                 >
-                    <li class="border-b-2 border-white">Contatti</li>
+                    <li class="border-b-2 border-white">
+                        {$t("footer.contatti")}
+                    </li>
                     <li
                         class="flex flex-row flex-wrap items-center justify-center gap-3"
                     >
@@ -132,7 +141,7 @@
             class="flex flex-row justify-start items-center border-t-2 border-slate-400 w-full text-xs text-slate-200 py-2"
         >
             <div>
-                Copyright © 2015 Expo Arredo SA - Tutti i diritti riservati
+                Copyright © 2015 Expo Arredo SA - {$t("footer.diritti")}
             </div>
         </div>
     </div>

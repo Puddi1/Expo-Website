@@ -2,14 +2,16 @@
     import { onMount } from "svelte";
     import ButtonHome from "../ButtonHome.svelte";
 
+    import { t } from "$lib/i18n";
+
     import { homeOffsetHeight } from "$lib/index";
     import { headerList } from "$lib/index";
-    headerList.set([
-        ["/", "Arredo"],
-        ["/servizio", "Servizio"],
-        ["/progetti", "Progetti"],
-        ["/", "Noi"],
-        ["/", "Brands"],
+    $: headerList.set([
+        ["/", $t("header.arredo")],
+        ["/servizio", $t("header.servizio")],
+        ["/progetti", $t("header.progetti")],
+        ["/#noi", $t("header.noi")],
+        ["/#brands", $t("header.brands")],
     ]);
     import { cornici, arredo } from "$lib/index";
     arredo.set(false);
@@ -17,7 +19,7 @@
 
     var home: HTMLElement;
 
-    let mounted = false;
+    var mounted = false;
     onMount(() => {
         mounted = true;
 
@@ -40,12 +42,12 @@
     >
         <img
             class="w-8/12 sm:w-4/12"
-            src="/home/expoCornici.svg"
+            src={$t("home.heroImageCornici")}
             alt="Expo Cornici Home Logo"
         />
 
         <div class="flex flex-col flex-wrap items-start justify-center gap-10">
-            <ButtonHome placeholder="Servizio Cornici" />
+            <ButtonHome placeholder={$t("home.heroButtonCornici")} />
         </div>
     </div>
     <img
