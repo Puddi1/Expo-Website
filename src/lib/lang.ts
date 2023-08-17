@@ -68,7 +68,7 @@ export const lang: Object = {
     FR: {
         "header.arredo": "Mobilier",
         "header.cornici": "Cadres",
-        "header.servizio": "Servizio",
+        "header.servizio": "Service",
         "header.progetti": "Projets",
         "header.noi": "Nous",
         "header.brands": "Marques",

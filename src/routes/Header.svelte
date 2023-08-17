@@ -27,8 +27,8 @@
     var languagesDropDownMenu: HTMLElement;
     function changeLanguage(e: any) {
         // change local order
-        locales[locales.indexOf(e.target.innerHTML)] = locales[0];
-        locales[0] = e.target.innerHTML;
+        locales[locales.indexOf(e.target.innerText)] = locales[0];
+        locales[0] = e.target.innerText;
 
         // Set language
         locale.set(locales[0]);
