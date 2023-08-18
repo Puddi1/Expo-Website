@@ -18,7 +18,7 @@
 </script>
 
 <footer
-    class="text-white w-full bg-expo flex items-center justify-center px-10 py-5"
+    class="text-white w-full bg-expo flex items-center justify-center px-10 py-5 z-50"
 >
     <div
         class="flex flex-col flex-wrap items-center justify-center gap-5 w-full"

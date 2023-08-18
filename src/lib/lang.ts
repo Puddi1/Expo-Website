@@ -15,6 +15,16 @@ export const lang: Object = {
         "home.heroImageCornici": "/home/expoCorniciIT.svg",
         "home.heroButtonCornici": "Servizio Cornici",
 
+        "brands.types": [
+            "Esterno e Luci",
+            "Arredamento",
+            "Illuminazione",
+            "Oggettistica",
+            "Cucine",
+            "Ufficio",
+            "Bagni",
+        ],
+
         "footer.arredo": "Arredo",
         "footer.cornici": "Cornici",
         "footer.sezioni": "Sezioni",
@@ -36,6 +46,16 @@ export const lang: Object = {
 
         "home.heroImageCornici": "/home/expoCorniciEN.svg",
         "home.heroButtonCornici": "Frames Service",
+
+        "brands.types": [
+            "Exterior and Lighting",
+            "Furniture",
+            "Lighting",
+            "Items",
+            "Kitchens",
+            "Office",
+            "Bathrooms",
+        ],
 
         "footer.arredo": "Furniture",
         "footer.cornici": "Frames",
@@ -59,6 +79,16 @@ export const lang: Object = {
         "home.heroImageCornici": "/home/expoCorniciDE.svg",
         "home.heroButtonCornici": "Rahmen Service",
 
+        "brands.types": [
+            "Äußeres und Beleuchtung",
+            "Möbel",
+            "Beleuchtung",
+            "Objekte",
+            "Küchen",
+            "Büro",
+            "Bäder",
+        ],
+
         "footer.arredo": "Möbel",
         "footer.cornici": "Frames",
         "footer.sezioni": "Sektionen",
@@ -80,6 +110,16 @@ export const lang: Object = {
 
         "home.heroImageCornici": "/home/expoCorniciFR.svg",
         "home.heroButtonCornici": "Service Cadres",
+
+        "brands.types": [
+            "Extérieur et Éclairage",
+            "Meubles",
+            "Éclairage",
+            "Objets",
+            "Cuisines",
+            "Bureau",
+            "Salles de bain",
+        ],
 
         "footer.arredo": "Mobilier",
         "footer.cornici": "Cadres",

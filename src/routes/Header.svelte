@@ -59,6 +59,39 @@
         isLeftMenuActive = true;
     }
 
+    function addHeaderBigSize() {
+        if (window.scrollY <= 25) {
+            headerSection.classList.remove("sm:border-opacity-30");
+            headerSection.classList.add("sm:border-opacity-0");
+        } else {
+            headerSection.classList.remove("sm:border-opacity-0");
+            headerSection.classList.add("sm:border-opacity-30");
+        }
+
+        if (window.scrollY <= 5) {
+            headerSection.classList.remove("shadow-2xl");
+            headerSection.classList.remove(
+                "sm:bg-opacity-80",
+                "sm:backdrop-blur"
+            );
+            //
+            headerSection.classList.add("shadow-none");
+            headerSection.classList.add(
+                "sm:bg-opacity-0",
+                "sm:backdrop-blur-none"
+            );
+        } else {
+            headerSection.classList.remove("shadow-none");
+            headerSection.classList.remove(
+                "sm:bg-opacity-0",
+                "sm:backdrop-blur-none"
+            );
+            //
+            headerSection.classList.add("shadow-2xl");
+            headerSection.classList.add("sm:bg-opacity-80", "sm:backdrop-blur");
+        }
+    }
+
     var mounted = false;
     onMount(() => {
         mounted = true;
@@ -66,10 +99,9 @@
         window.addEventListener("resize", onResize);
 
         function onResize() {
+            console.log("resize");
             if (window.innerWidth < 640) {
-                headerSection.classList.remove("translate-x-0");
                 headerSection.classList.add(
-                    "-translate-x-96",
                     "bg-gradient-to-b",
                     "from-expo-90",
                     "from-5%",
@@ -92,6 +124,9 @@
                 "to-35%",
                 "border-opacity-30"
             );
+
+            addHeaderBigSize();
+            headerSection.classList.add("sm:bg-neutral-900");
         }
 
         // Under 650px width
@@ -107,27 +142,7 @@
                 "border-opacity-30"
             );
 
-            if (window.scrollY <= 25) {
-                headerSection.classList.remove("sm:border-opacity-30");
-                headerSection.classList.add("sm:border-opacity-0");
-            } else {
-                headerSection.classList.remove("sm:border-opacity-0");
-                headerSection.classList.add("sm:border-opacity-30");
-            }
-
-            if (window.scrollY <= 5) {
-                headerSection.classList.remove("shadow-2xl");
-                headerSection.classList.remove("sm:bg-opacity-80");
-                //
-                headerSection.classList.add("shadow-none");
-                headerSection.classList.add("sm:bg-opacity-0");
-            } else {
-                headerSection.classList.remove("shadow-none");
-                headerSection.classList.remove("sm:bg-opacity-0");
-                //
-                headerSection.classList.add("shadow-2xl");
-                headerSection.classList.add("sm:bg-opacity-80");
-            }
+            addHeaderBigSize();
 
             headerSection.classList.add("sm:bg-neutral-900");
         } else {
@@ -158,23 +173,36 @@
 
             if (window.scrollY <= 5) {
                 headerSection.classList.remove("shadow-2xl");
-                headerSection.classList.remove("sm:bg-opacity-80");
+                headerSection.classList.remove(
+                    "sm:bg-opacity-80",
+                    "sm:backdrop-blur"
+                );
                 //
                 headerSection.classList.add("shadow-none");
-                headerSection.classList.add("sm:bg-opacity-0");
+                headerSection.classList.add(
+                    "sm:bg-opacity-0",
+                    "sm:backdrop-blur-none"
+                );
             } else {
                 headerSection.classList.remove("shadow-none");
-                headerSection.classList.remove("sm:bg-opacity-0");
+                headerSection.classList.remove(
+                    "sm:bg-opacity-0",
+                    "sm:backdrop-blur-none"
+                );
                 //
                 headerSection.classList.add("shadow-2xl");
-                headerSection.classList.add("sm:bg-opacity-80");
+                headerSection.classList.add(
+                    "sm:bg-opacity-80",
+                    "sm:backdrop-blur"
+                );
             }
 
             if (_homeOffsetHeight == null) {
                 return;
             }
 
-            let downScroll = lastScrollPosition < window.scrollY;
+            let downScroll = lastScrollPosition <= window.scrollY;
+            let upScrollSpeed = lastScrollPosition - window.scrollY;
             let inGeneralPresentation = _homeOffsetHeight / 2 > window.scrollY;
             lastScrollPosition = window.scrollY;
 
@@ -186,22 +214,24 @@
                 return;
             }
 
-            if (!downScroll) {
-                headerSection.style.transform = "translateY(0px)";
+            if (!downScroll && upScrollSpeed > 10) {
+                headerSection.classList.remove("-translate-y-24");
                 return;
             }
 
-            headerSection.style.transform = "translateY(-94px)";
+            if (downScroll) {
+                headerSection.classList.add("-translate-y-24");
+            }
         }
     });
 </script>
 
 <header
-    class="text-white z-50 fixed sm:w-full w-auto sm:h-24 h-full
+    class="text-white z-50 fixed sm:w-full w-auto sm:h-24 h-full tra
 
     flex flex-col px-4 py-2 sm:p-header sm:flex-row justify-evenly sm:justify-between items-start sm:items-center sm:gap-2
 
-    sm:border-b-2 sm:border-b-white sm:border-opacity-0 sm:bg-opacity-80 sm:border-r-0 sm:-translate-x-0
+    sm:border-b-2 sm:border-b-white sm:border-opacity-0 sm:bg-opacity-80 sm:backdrop-blur sm:border-r-0 sm:-translate-x-0 backdrop-blur
 
     -translate-x-96
     

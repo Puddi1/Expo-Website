@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ButtonHome from "./ButtonHome.svelte";
+    import Brands from "./Brands.svelte";
 
     import { t } from "$lib/i18n";
 
@@ -57,9 +58,24 @@
     />
 </main>
 
-<section id="noi" class="flex items-center justify-center h-screen w-screen">
+<section
+    id="noi"
+    class="flex items-center justify-center h-screen w-screen bg-black"
+>
     <div>{$t("header.noi")}</div>
 </section>
-<section id="brands" class="flex items-center justify-center h-screen w-screen">
-    <div>{$t("header.brands")}</div>
+
+<section
+    id="servizi"
+    class="flex items-center justify-center h-screen w-screen bg-black"
+>
+    <div>Intro su servizi</div>
 </section>
+<section
+    id="progetti"
+    class="flex items-center justify-center h-screen w-screen bg-black"
+>
+    <div>Into su progetti</div>
+</section>
+
+<Brands />

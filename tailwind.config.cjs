@@ -23,8 +23,19 @@ const config = {
             ],
         },
         extend: {
+            backgroundImage: {
+                light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)",
+                // light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)", enlarge h to get blur on top
+                "light-sm":
+                    "radial-gradient(farthest-corner at 40% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 150%)",
+            },
+            boxShadow: {
+                "light-shadow": "0 30px 40px rgba(0,0,0,.1)",
+            },
             colors: {
                 expo: "#154CC1",
+                "expo-30": "rgba(21, 76, 193, 0.3)",
+                "black-30": "rgba(0, 0, 0, 0.3)",
                 "expo-60": "rgba(21, 76, 193, 0.6)",
                 "black-60": "rgba(0, 0, 0, 0.6)",
                 "expo-80": "rgba(21, 76, 193, 0.8)",
