@@ -23,6 +23,25 @@ const config = {
             ],
         },
         extend: {
+            animation: {
+                "enter-alert": "enter-alert 12s linear",
+            },
+            keyframes: {
+                "enter-alert": {
+                    "9%": { transform: "translateX(-0.5%)" },
+                    "91%": { transform: "translateX(0%)" },
+                },
+            },
+            zIndex: {
+                99: 99,
+            },
+            translate: {
+                leftBlobInitialY: "150%",
+                rightBlobInitialY: "170%",
+                "1/5": "20%",
+                "1/6": "16.66666%",
+                "1/20": "5%",
+            },
             backgroundImage: {
                 light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)",
                 // light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)", enlarge h to get blur on top

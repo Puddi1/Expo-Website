@@ -20,6 +20,7 @@ write reademe
 
 1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
 1. deploy test
+1. email works, still doesn't trigger success status when met.
 
 ## create-svelte
 

@@ -92,14 +92,15 @@
         }
     }
 
+    var preventivo = false;
     var mounted = false;
     onMount(() => {
         mounted = true;
+        if (window.location.pathname == "/preventivo") preventivo = true;
         window.addEventListener("scroll", onScroll);
         window.addEventListener("resize", onResize);
 
         function onResize() {
-            console.log("resize");
             if (window.innerWidth < 640) {
                 headerSection.classList.add(
                     "bg-gradient-to-b",
@@ -125,6 +126,22 @@
                 "border-opacity-30"
             );
 
+            if (preventivo) {
+                headerSection.classList.remove("shadow-2xl");
+                headerSection.classList.remove(
+                    "sm:bg-opacity-80",
+                    "sm:backdrop-blur",
+                    "fixed"
+                );
+                //
+                headerSection.classList.add("shadow-none");
+                headerSection.classList.add(
+                    "sm:bg-opacity-0",
+                    "sm:backdrop-blur-none",
+                    "absolute"
+                );
+                headerSection.classList.add("sm:bg-neutral-900");
+            }
             addHeaderBigSize();
             headerSection.classList.add("sm:bg-neutral-900");
         }
@@ -141,6 +158,23 @@
                 "to-35%",
                 "border-opacity-30"
             );
+
+            if (preventivo) {
+                headerSection.classList.remove("shadow-2xl");
+                headerSection.classList.remove(
+                    "sm:bg-opacity-80",
+                    "sm:backdrop-blur",
+                    "fixed"
+                );
+                //
+                headerSection.classList.add("shadow-none");
+                headerSection.classList.add(
+                    "sm:bg-opacity-0",
+                    "sm:backdrop-blur-none",
+                    "absolute"
+                );
+                headerSection.classList.add("sm:bg-neutral-900");
+            }
 
             addHeaderBigSize();
 
@@ -159,7 +193,7 @@
         }
         // Over 650px width
         function onScroll() {
-            if (window.innerWidth < 640) {
+            if (window.innerWidth < 640 || preventivo) {
                 return;
             }
 
@@ -227,7 +261,7 @@
 </script>
 
 <header
-    class="text-white z-50 fixed sm:w-full w-auto sm:h-24 h-full tra
+    class="text-white z-50 fixed sm:w-full w-auto sm:h-24 h-full
 
     flex flex-col px-4 py-2 sm:p-header sm:flex-row justify-evenly sm:justify-between items-start sm:items-center sm:gap-2
 
@@ -243,24 +277,24 @@
         {#if _arredo}
             <a href="/">
                 <img
-                    class="w-16 min-w-16 transition-all hover:contrast-200 hover:brightness-175 hover:cursor-pointer"
-                    src="/favicon/expoArredo.svg"
+                    class="w-16 min-w-16 transition-all hover:drop-shadow-expoLight clickable"
+                    src="/favicon/expoArredoWhite.svg"
                     alt="Expo Arredo Favicon"
                 />
             </a>
         {:else if _cornici}
             <a href="/cornici">
                 <img
-                    class="w-16 min-w-16 transition-all hover:contrast-200 hover:brightness-175 hover:cursor-pointer"
-                    src="/favicon/expoCornici.svg"
+                    class="w-16 min-w-16 transition-all hover:drop-shadow-expoLight clickable"
+                    src="/favicon/expoCorniciWhite.svg"
                     alt="Expo Cornici Favicon"
                 />
             </a>
         {:else}
             <a href="/">
                 <img
-                    class="w-16 min-w-16 transition-all hover:contrast-200 hover:brightness-175 hover:cursor-pointer"
-                    src="/favicon/expoArredo.svg"
+                    class="w-16 min-w-16 transition-all hover:drop-shadow-expoLight clickable"
+                    src="/favicon/expoArredoWhite.svg"
                     alt="Expo Arredo Favicon"
                 />
             </a>

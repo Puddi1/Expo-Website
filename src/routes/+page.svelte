@@ -1,6 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ButtonHome from "./ButtonHome.svelte";
+    import HomeProjects from "./HomeProjects.svelte";
+    import HomeService from "./HomeService.svelte";
+    import Us from "./Us.svelte";
     import Brands from "./Brands.svelte";
 
     import { t } from "$lib/i18n";
@@ -13,6 +16,7 @@
         ["/progetti", $t("header.progetti")],
         ["/#noi", $t("header.noi")],
         ["/#brands", $t("header.brands")],
+        ["/preventivo", $t("header.contatta")],
     ]);
 
     import { arredo } from "$lib/index";
@@ -58,24 +62,10 @@
     />
 </main>
 
-<section
-    id="noi"
-    class="flex items-center justify-center h-screen w-screen bg-black"
->
-    <div>{$t("header.noi")}</div>
-</section>
+<Us />
 
-<section
-    id="servizi"
-    class="flex items-center justify-center h-screen w-screen bg-black"
->
-    <div>Intro su servizi</div>
-</section>
-<section
-    id="progetti"
-    class="flex items-center justify-center h-screen w-screen bg-black"
->
-    <div>Into su progetti</div>
-</section>
+<HomeService />
+
+<HomeProjects />
 
 <Brands />

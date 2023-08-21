@@ -55,30 +55,17 @@
         // Clear all
         for (let i = 0; i < imagesBrands.length; ++i) {
             imagesBrands[i].imel?.classList.remove("opacity-100");
-            imagesBrands[i].imel?.classList.add("opacity-30");
+            imagesBrands[i].imel?.classList.add("opacity-20");
         }
 
         if (lastElementSelected.id == "brands-type-" + 0) {
             // E
-            for (let i = 1; i < 4; ++i) {
-                imagesBrands[i].imel?.classList.add("opacity-100");
-                imagesBrands[i].imel?.classList.remove("opacity-30");
-            }
-            imagesBrands[7].imel?.classList.add("opacity-100");
-            imagesBrands[7].imel?.classList.remove("opacity-30");
-            for (let i = 13; i < 16; ++i) {
-                imagesBrands[i].imel?.classList.add("opacity-100");
-                imagesBrands[i].imel?.classList.remove("opacity-30");
-            }
-            for (let i = 19; i < 22; ++i) {
-                imagesBrands[i].imel?.classList.add("opacity-100");
-                imagesBrands[i].imel?.classList.remove("opacity-30");
-            }
-            imagesBrands[25].imel?.classList.add("opacity-100");
-            imagesBrands[25].imel?.classList.remove("opacity-30");
-            for (let i = 31; i < 34; ++i) {
-                imagesBrands[i].imel?.classList.add("opacity-100");
-                imagesBrands[i].imel?.classList.remove("opacity-30");
+            var cases: number[] = [
+                1, 2, 3, 7, 13, 14, 15, 19, 20, 21, 25, 31, 32, 33,
+            ];
+            for (let i = 0; i < cases.length; ++i) {
+                imagesBrands[cases[i]].imel?.classList.add("opacity-100");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
         if (lastElementSelected.id == "brands-type-" + 1) {
@@ -86,7 +73,7 @@
             var cases: number[] = [0, 5, 7, 10, 14, 15, 20, 21, 25, 28, 30, 35];
             for (let i = 0; i < cases.length; ++i) {
                 imagesBrands[cases[i]].imel?.classList.add("opacity-100");
-                imagesBrands[cases[i]].imel?.classList.remove("opacity-30");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
         if (lastElementSelected.id == "brands-type-" + 2) {
@@ -96,7 +83,7 @@
             ];
             for (let i = 0; i < cases.length; ++i) {
                 imagesBrands[cases[i]].imel?.classList.add("opacity-100");
-                imagesBrands[cases[i]].imel?.classList.remove("opacity-30");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
         if (lastElementSelected.id == "brands-type-" + 3) {
@@ -106,7 +93,7 @@
             ];
             for (let i = 0; i < cases.length; ++i) {
                 imagesBrands[cases[i]].imel?.classList.add("opacity-100");
-                imagesBrands[cases[i]].imel?.classList.remove("opacity-30");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
         if (lastElementSelected.id == "brands-type-" + 4) {
@@ -114,7 +101,7 @@
             var cases: number[] = [1, 34, 2, 5, 23, 17, 18, 24];
             for (let i = 0; i < cases.length; ++i) {
                 imagesBrands[cases[i]].imel?.classList.add("opacity-100");
-                imagesBrands[cases[i]].imel?.classList.remove("opacity-30");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
         if (lastElementSelected.id == "brands-type-" + 5) {
@@ -122,7 +109,7 @@
             var cases: number[] = [8, 9, 13, 16, 19, 25, 26, 26, 35];
             for (let i = 0; i < cases.length; ++i) {
                 imagesBrands[cases[i]].imel?.classList.add("opacity-100");
-                imagesBrands[cases[i]].imel?.classList.remove("opacity-30");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
         if (lastElementSelected.id == "brands-type-" + 6) {
@@ -130,7 +117,7 @@
             var cases: number[] = [3, 7, 13, 18, 22, 23, 26, 27, 28, 34, 35];
             for (let i = 0; i < cases.length; ++i) {
                 imagesBrands[cases[i]].imel?.classList.add("opacity-100");
-                imagesBrands[cases[i]].imel?.classList.remove("opacity-30");
+                imagesBrands[cases[i]].imel?.classList.remove("opacity-20");
             }
         }
     }
@@ -223,15 +210,23 @@
                 class="grid grid-cols-6 grid-rows-6 items-center justify-center flex-wrap h-full gap-5"
             >
                 {#each imagesBrands as i}
-                    <div>
-                        <!-- <a href=""></a> after on their wb -->
-                        <!-- add bg of they stuff on hover -->
+                    <div
+                        class="h-full w-full flex items-center justify-center transition-all relative imgBkgP"
+                    >
+                        <!-- Image 1.5:1 -->
                         <img
-                            bind:this={i.imel}
-                            class="opacity-30 transition-all"
-                            src="/brands/franke.svg"
-                            alt="Brands Llogos"
+                            class="absolute object-cover w-full h-full opacity-0 z-0 imgBkgC transition-all"
+                            src="/background/gatto.jpeg"
+                            alt=""
                         />
+                        <a class="z-50" href="expoarredo.ch" target="_blank">
+                            <img
+                                bind:this={i.imel}
+                                class="opacity-20 hover:opacity-100 transition-all"
+                                src="/brands/franke.svg"
+                                alt="Brands Llogos"
+                            />
+                        </a>
                     </div>
                 {/each}
             </div>
@@ -252,3 +247,9 @@
         />
     </div>
 </section>
+
+<style>
+    .imgBkgP:hover > .imgBkgC {
+        opacity: 1;
+    }
+</style>

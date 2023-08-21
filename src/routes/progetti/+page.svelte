@@ -7,6 +7,7 @@
         ["/progetti", $t("header.progetti")],
         ["/#noi", $t("header.noi")],
         ["/#brands", $t("header.brands")],
+        ["/preventivo", $t("header.contatta")],
     ]);
 </script>
 

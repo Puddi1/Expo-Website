@@ -4,7 +4,7 @@ import { lang } from "./lang";
 export const locale = writable("IT");
 export const locales = Object.keys(lang);
 
-function translate(locale: any, key: any, vars: any) {
+export function translate(locale: any, key: any, vars: any) {
     // Let's throw some errors if we're trying to use keys/locales that don't exist.
     // We could improve this by using Typescript and/or fallback values.
     if (!key) throw new Error("no key provided to $t()");

@@ -130,7 +130,19 @@
                     >
                         <img src="/favicon/mapMaker.svg" alt="Map Maker icon" />
                         <p>
-                            Via Vignalunga, 2c<br />6850 Mendrisio - Svizzera
+                            {$t("footer.via")} Vignalunga, 2c<br />6850
+                            Mendrisio - Svizzera
+                        </p>
+                    </li>
+                    <li
+                        class="flex flex-row flex-wrap items-center justify-center gap-3"
+                    >
+                        <img src="/favicon/clock.svg" alt="Map Maker icon" />
+                        <p>
+                            {$t("footer.lunVen")} <br /> 9.00 - 12.00 / 14.00 -
+                            18.00 <br />
+                            {$t("footer.sabato")} <br />
+                            {$t("footer.soloAppuntamento")}
                         </p>
                     </li>
                 </ul>
