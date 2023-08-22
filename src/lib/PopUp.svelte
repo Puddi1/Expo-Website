@@ -52,7 +52,7 @@
 <div
     bind:this={popUpContainer}
     id="popUpContainer"
-    class="absolute z-99 w-full h-full pointer-events-none flex items-center justify-center translate-x-full"
+    class="fixed z-99 w-full h-full pointer-events-none flex items-center justify-center translate-x-full"
 >
     <div
         class="fixed pointer-events-auto flex items-start
