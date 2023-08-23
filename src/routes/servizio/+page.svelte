@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { t } from "$lib/i18n";
+    import { t } from "$lib/i18n"; // add
     import { headerList } from "$lib/index";
     $: headerList.set([
         ["/cornici", $t("header.cornici")],
@@ -11,7 +11,8 @@
     ]);
 </script>
 
-<!-- Pagina su misura per il servizio -->
-<main class="flex items-center justify-center h-screen w-screen">
-    <div>Pagina su misura per il servizio</div>
+<main
+    class="flex items-center justify-center flex-col min-h-screen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% py-36 lg:py-24 px-10"
+>
+    Preventivo
 </main>

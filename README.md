@@ -20,7 +20,11 @@ write reademe
 
 1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
 1. deploy test
-1. sometimes header hasn't h-full on not sm
+
+1. Dynamicity [progetto]
+1. carouselle images
+1. effect projects images bar scrolling
+1. sometimes header hasn't h-full on not sm / true??
 1. little bug on mobile view when scrolling over brands (has to do w/ lamp opacity light layer)
 
 ## create-svelte

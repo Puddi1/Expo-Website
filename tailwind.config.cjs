@@ -30,6 +30,9 @@ const config = {
                 120: "30rem",
             },
             height: {
+                threeQuarterScreen: "75vh",
+                halfScreen: "50vh",
+                fifthScreen: "20vh",
                 120: "30rem",
             },
             animation: {
