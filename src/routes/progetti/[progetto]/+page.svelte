@@ -11,11 +11,6 @@
     ]);
 </script>
 
-<!-- Sorting of projects, little viewcard of projects that redirects to a standard project page [progetto] -->
 <main class="flex items-center justify-center h-screen w-screen">
-    <div>
-        Tutti progetti con scheda informativa, che rediricono alla <a
-            href="/progetti/0">pagina propria dell'intero progetto</a
-        >
-    </div>
+    <div>Pagina sumisura per ogni progetto</div>
 </main>

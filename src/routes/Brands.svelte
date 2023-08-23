@@ -171,7 +171,7 @@
 
 <section
     id="brands"
-    class="flex items-center justify-center h-screen w-screen overflow-hidden z-0 bg-slate-900"
+    class="flex items-center justify-center h-screen w-screen overflow-hidden z-0 bg-slate-900 border-t-2 border-white"
 >
     <div class="z-40 w-full h-full pt-28 pb-10 px-4 sm:px-16">
         <div

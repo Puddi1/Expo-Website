@@ -20,7 +20,8 @@ write reademe
 
 1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
 1. deploy test
-1. email works, still doesn't trigger success status when met.
+1. sometimes header hasn't h-full on not sm
+1. little bug on mobile view when scrolling over brands (has to do w/ lamp opacity light layer)
 
 ## create-svelte
 

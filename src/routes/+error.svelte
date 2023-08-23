@@ -32,7 +32,7 @@
         <h1 class="text-3xl font-bold">Status: {$page.status}</h1>
         <p class="text-xl">{_message}</p>
         <div class="flex flex-col flex-wrap items-start justify-center gap-10">
-            <a href="/"><ButtonHome placeholder="Home" /></a>
+            <ButtonHome route="/" placeholder="Home" />
         </div>
     </div>
     <img

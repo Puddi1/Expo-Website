@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ButtonHeader from "./ButtonHeader.svelte";
+    import { beforeNavigate } from "$app/navigation";
+    beforeNavigate(checkPreventivo);
 
     import { arredo, cornici } from "$lib/index";
     var _arredo: boolean = false;
@@ -93,9 +95,23 @@
     }
 
     var preventivo = false;
+    function checkPreventivo(e: any) {
+        if (e.to.route.id == "/preventivo") {
+            preventivo = true;
+            headerSection.classList.remove("fixed");
+            headerSection.classList.add("absolute");
+            return;
+        }
+
+        preventivo = false;
+        headerSection.classList.remove("absolute");
+        headerSection.classList.add("fixed");
+    }
+
     var mounted = false;
     onMount(() => {
         mounted = true;
+
         if (window.location.pathname == "/preventivo") preventivo = true;
         window.addEventListener("scroll", onScroll);
         window.addEventListener("resize", onResize);

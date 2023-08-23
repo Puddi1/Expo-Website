@@ -23,6 +23,15 @@ const config = {
             ],
         },
         extend: {
+            rotate: {
+                135: "135deg",
+            },
+            width: {
+                120: "30rem",
+            },
+            height: {
+                120: "30rem",
+            },
             animation: {
                 "enter-alert": "enter-alert 12s linear",
             },

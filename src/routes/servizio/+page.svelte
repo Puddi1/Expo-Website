@@ -11,6 +11,7 @@
     ]);
 </script>
 
+<!-- Pagina su misura per il servizio -->
 <main class="flex items-center justify-center h-screen w-screen">
-    <div>Servizio</div>
+    <div>Pagina su misura per il servizio</div>
 </main>
