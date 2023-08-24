@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+    import { homeOffsetHeight } from "$lib/index";
     import { t } from "$lib/i18n"; // add
     import ProjectCard from "$lib/ProjectCard.svelte";
 
@@ -42,6 +44,12 @@
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae, debitis doloribus commodi voluptate totam labore. Rerum, nisi ullam rem quae eveniet sapiente. Quidem voluptatibus reiciendis architecto reprehenderit commodi facilis. <br/> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae, debitis doloribus commodi voluptate totam labore. Rerum, nisi ullam rem quae eveniet sapiente. Quidem voluptatibus reiciendis architecto reprehenderit commodi facilis. <br/> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae, debitis doloribus commodi voluptate totam labore. Rerum, nisi ullam rem quae eveniet sapiente. Quidem voluptatibus reiciendis architecto reprehenderit commodi facilis. <br/> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae, debitis doloribus commodi voluptate totam labore. Rerum, nisi ullam rem quae eveniet sapiente. Quidem voluptatibus reiciendis architecto reprehenderit commodi facilis.",
         ],
     ];
+
+    var mounted = false;
+    onMount(() => {
+        mounted = true;
+        homeOffsetHeight.set(0);
+    });
 </script>
 
 <main

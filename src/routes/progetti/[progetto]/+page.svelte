@@ -1,7 +1,8 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+    import { homeOffsetHeight } from "$lib/index";
     import { t } from "$lib/i18n";
     import { headerList } from "$lib/index";
-    import { onMount } from "svelte";
     $: headerList.set([
         ["/cornici", $t("header.cornici")],
         ["/servizio", $t("header.servizio")],
@@ -53,6 +54,7 @@
     var mounted = false;
     onMount(() => {
         mounted = true;
+        homeOffsetHeight.set(0);
 
         imagesFrame.addEventListener("mousemove", HandleMoveFrame);
         imagesFrame.addEventListener("ontouchmove", (e: any) => {

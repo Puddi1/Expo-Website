@@ -1,8 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ButtonHeader from "./ButtonHeader.svelte";
-    import { beforeNavigate } from "$app/navigation";
-    beforeNavigate(checkPreventivo);
 
     import { arredo, cornici } from "$lib/index";
     var _arredo: boolean = false;
@@ -93,26 +91,19 @@
         }
     }
 
-    var preventivo = false;
-    var progetto = false; // add it for every /progetto/x
-    function checkPreventivo(e: any) {
-        if (e.to.route.id == "/preventivo" && window.innerWidth > 640) {
-            preventivo = true;
-            headerSection.classList.remove("fixed");
-            headerSection.classList.add("absolute");
-            return;
-        }
-
-        preventivo = false;
-        headerSection.classList.remove("absolute");
-        headerSection.classList.add("fixed");
-    }
-
     var mounted = false;
     onMount(() => {
         mounted = true;
 
-        if (window.location.pathname == "/preventivo") preventivo = true;
+        if (_homeOffsetHeight == 0) {
+            headerSection.classList.remove("fixed");
+            headerSection.classList.add("absolute");
+            return;
+        } else {
+            headerSection.classList.remove("absolute");
+            headerSection.classList.add("fixed");
+        }
+
         window.addEventListener("scroll", onScroll);
         window.addEventListener("resize", onResize);
 
@@ -147,7 +138,7 @@
                 "border-opacity-30"
             );
 
-            if (preventivo) {
+            if (_homeOffsetHeight == 0) {
                 headerSection.classList.remove("shadow-2xl");
                 headerSection.classList.remove(
                     "sm:bg-opacity-80",
@@ -181,7 +172,7 @@
                 "border-opacity-30"
             );
 
-            if (preventivo) {
+            if (_homeOffsetHeight == 0) {
                 headerSection.classList.remove("shadow-2xl");
                 headerSection.classList.remove(
                     "sm:bg-opacity-80",
@@ -215,7 +206,7 @@
         }
         // Over 650px width
         function onScroll() {
-            if (window.innerWidth < 640 || preventivo) {
+            if (window.innerWidth < 640 || _homeOffsetHeight == 0) {
                 return;
             }
 

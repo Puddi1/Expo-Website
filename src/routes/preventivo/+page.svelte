@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { homeOffsetHeight } from "$lib/index";
 
     import { t } from "$lib/i18n";
 
@@ -19,6 +20,7 @@
     let mounted = false;
     onMount(() => {
         mounted = true;
+        homeOffsetHeight.set(0);
     });
 </script>
 

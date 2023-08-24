@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+    import { homeOffsetHeight } from "$lib/index";
+
     import { t } from "$lib/i18n"; // add
     import { headerList } from "$lib/index";
     import ProjectCardGrid from "$lib/ProjectCardGrid.svelte";
@@ -145,7 +148,11 @@
         }
     }
 
-    // function that changes the starting array -> $ updates
+    var mounted = false;
+    onMount(() => {
+        mounted = true;
+        homeOffsetHeight.set(0);
+    });
 </script>
 
 <!-- Sorting of projects, little viewcard of projects that redirects to a standard project page [progetto] -->
