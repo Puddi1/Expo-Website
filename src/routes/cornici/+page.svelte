@@ -8,10 +8,7 @@
     import { headerList } from "$lib/index";
     $: headerList.set([
         ["/", $t("header.arredo")],
-        ["/servizio", $t("header.servizio")],
-        ["/progetti", $t("header.progetti")],
-        ["/#noi", $t("header.noi")],
-        ["/#brands", $t("header.brands")],
+        ["/preventivo", $t("header.contatta")],
     ]);
     import { cornici, arredo } from "$lib/index";
     arredo.set(false);

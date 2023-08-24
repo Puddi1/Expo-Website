@@ -150,13 +150,13 @@
 
 <!-- Sorting of projects, little viewcard of projects that redirects to a standard project page [progetto] -->
 <main
-    class="flex items-center justify-center h-threeQuarterScreen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% py-24 px-10"
+    class="flex items-center justify-center min-h-threeQuarterScreen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% pt-40 py-24 px-5 sm:px-10"
 >
     <div class="w-full flex items-center justify-center flex-col gap-7">
         <h1 class="text-5xl font-extrabold">
             Expo Arredo: <span class="text-expo">X</span> Progetti
         </h1>
-        <p class="flex items-center justify-center flex-col gap-5 w-10/12">
+        <p class="flex items-center justify-center flex-col gap-5 w-11/12">
             <span class="text-lg font-semibold">
                 Abbiamo lavorato su moltissimi progetti,
                 <span class="underline transition-all hover:text-expo"
@@ -164,7 +164,7 @@
                 >.
             </span>
             <span
-                class="flex items-center justify-center flex-col gap-1 text-justify"
+                class="flex items-center justify-center flex-col gap-1 text-justify w-11/12"
             >
                 <span>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -188,7 +188,9 @@
     <div
         class="flex items-center justify-center flex-col gap-10 px-16 py-3 pb-16"
     >
-        <div class="flex items-center justify-start gap-10 w-full">
+        <div
+            class="flex items-center justify-start flex-col sm:flex-row gap-10 w-full"
+        >
             <h1 class="text-5xl font-extrabold">Progetti</h1>
             <select
                 bind:value={selectValue}

@@ -22,7 +22,9 @@
             class="flex flex-col justify-evenly items-center gap-20 h-full w-full order-1 sm:order-2"
         >
             <div class="flex flex-col justify-center w-11/12 gap-5">
-                <h1 class="text-4xl font-extrabold">Expo Arredo: X Progetti</h1>
+                <h1 class="text-4xl font-extrabold">
+                    Expo Arredo: <span class="text-expo">X</span> Progetti
+                </h1>
                 <div
                     class="w-full h-full flex items-top justify-center overflow-auto"
                 >

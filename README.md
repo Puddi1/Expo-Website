@@ -24,8 +24,9 @@ write reademe
 1. Dynamicity [progetto]
 1. carouselle images
 1. effect projects images bar scrolling
+
 1. sometimes header hasn't h-full on not sm / true??
-1. little bug on mobile view when scrolling over brands (has to do w/ lamp opacity light layer)
+1. little bug on mobile view when scrolling over brands (has to do w/ lamp opacity light layer) if persistent keep it light up on lower screens
 
 ## create-svelte
 

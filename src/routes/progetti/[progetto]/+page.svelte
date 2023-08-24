@@ -1,6 +1,7 @@
 <script lang="ts">
     import { t } from "$lib/i18n";
     import { headerList } from "$lib/index";
+    import { onMount } from "svelte";
     $: headerList.set([
         ["/cornici", $t("header.cornici")],
         ["/servizio", $t("header.servizio")],
@@ -20,7 +21,11 @@
     ];
 
     export var photosProject = [
-        ["/background/gattoLook.jpeg", "/background/cucinaHome.png", "Cucina"],
+        [
+            "/background/gattoLook.jpeg",
+            "/background/cucinaHome.png",
+            "Cucina Cucina Cucina Cucina Cucina Cucina",
+        ],
         [
             "/background/cucinaHome.png",
             "/background/gattoLook.jpeg",
@@ -32,41 +37,58 @@
             "Descrizione immagini",
         ],
     ];
+
+    var leftSide: HTMLElement;
+    var imagesFrame: HTMLElement;
+    function HandleMoveFrame(e: any) {
+        let percFromRight = (e.clientX / imagesFrame.offsetWidth) * 100;
+        console.log(percFromRight);
+
+        leftSide.style.width = `${percFromRight}%`;
+
+        // let optc = percFromRight;
+        // leftSide.style.opacity = `${optc}`;
+    }
+
+    var mounted = false;
+    onMount(() => {
+        mounted = true;
+
+        imagesFrame.addEventListener("mousemove", HandleMoveFrame);
+        imagesFrame.addEventListener("ontouchmove", (e: any) => {
+            HandleMoveFrame(e.touches[0]);
+        });
+    });
 </script>
 
 <main
-    class="flex items-center justify-evenly lg:justify-center flex-col lg:flex-row gap-24 lg:gap-1 min-h-screen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% py-36 lg:py-24 px-10"
+    class="flex items-center justify-evenly lg:justify-center flex-col lg:flex-row gap-24 lg:gap-1 min-h-screen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% py-36 lg:py-24 px-5 lg:px-10"
 >
     <div
         class="flex items-center justify-center flex-col w-full h-full gap-5 order-2 lg:order-1"
     >
         <!-- tutte le foto doppio layer + carouselle -->
         <div
-            class="relative flex items-center justify-center border-2 border-white w-full gap-5"
+            bind:this={imagesFrame}
+            class="relative flex items-center justify-center border-2 border-white w-full h-108 gap-5"
         >
-            <div
-                class="absolute flex items-center justify-center w-2 h-full bg-white z-40"
-            >
-                <div
-                    class="absolute rounded-full w-6 h-6 bg-fuchsia-400 cursor-pointer"
-                >
-                    <img src="/favicon/bar.svg" alt="" />
-                </div>
-            </div>
-            <div class="absolute w-full h-full backdrop-opacity-0" />
+            <!-- manage with after the center styles -->
             <img
-                class="object-cover h-full w-full"
-                src="/background/gattoLook.jpeg"
-                alt=""
-            />
-            <img
-                class="object-cover absolute h-full w-full"
+                bind:this={leftSide}
+                class="object-cover absolute left-0 border-r-8 border-white h-full w-full z-2"
                 src="/background/cucinaHome.png"
                 alt=""
             />
+
+            <img
+                class="object-cover absolute h-full w-full"
+                src="/background/gattoLook.jpeg"
+                alt=""
+            />
         </div>
+
         <div class="flex items-center justify-center flex-col gap-3">
-            <div class="">Cucina</div>
+            <div class="">Cucina Cucina Cucina Cucina Cucina Cucina</div>
             <div>
                 <ul class="flex items-center justify-center flex-row gap-5">
                     {#each photosProject as p, i}
@@ -87,16 +109,25 @@
             </div>
         </div>
     </div>
+
     <div class="flex items-center justify-center w-full h-full lg:order-2">
         <!-- Titolo descrizione e statistiche -->
-        <div class="flex items-start justify-around flex-col gap-7 w-9/12">
-            <h1 class="text-5xl font-extrabold">{Title}</h1>
-            <div class="flex items-start justify-center flex-col gap-5">
-                <div class="flex items-start justify-center overflow-auto">
-                    <p class="text-justify">
+        <div
+            class="flex items-start justify-around flex-col gap-7 w-11/12 sm:w-10/12"
+        >
+            <h1 class="text-5xl font-extrabold w-full">{Title}</h1>
+
+            <div
+                class="flex items-center sm:items-start justify-center flex-col gap-5 w-full h-full"
+            >
+                <div
+                    class="flex items-start justify-center overflow-auto w-11/12 sm:w-full"
+                >
+                    <p class="text-justify w-full">
                         {@html Description}
                     </p>
                 </div>
+
                 <div class="flex items-center justify-center w-full">
                     <ul
                         class="flex items-center justify-evenly flex-row w-full"

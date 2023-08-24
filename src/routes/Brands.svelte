@@ -142,27 +142,27 @@
     onMount(() => {
         mounted = true;
 
+        var isLightTriggered = false;
         let rect = lightLamp.getBoundingClientRect();
         if (rect.top + 400 <= rect.height) {
-            lightLamp.classList.add("opacity-50");
             lightLamp.classList.remove("opacity-0");
+            lightLamp.classList.add("opacity-50");
             isLightTriggered = true;
         } else if (rect.top + 400 > rect.height) {
-            lightLamp.classList.add("opacity-0");
             lightLamp.classList.remove("opacity-50");
+            lightLamp.classList.add("opacity-0");
             isLightTriggered = false;
         }
 
-        var isLightTriggered = false;
-        window.addEventListener("scroll", (e) => {
+        window.addEventListener("scroll", () => {
             let rect = lightLamp.getBoundingClientRect();
             if (rect.top + 400 <= rect.height && !isLightTriggered) {
-                lightLamp.classList.add("opacity-50");
                 lightLamp.classList.remove("opacity-0");
+                lightLamp.classList.add("opacity-50");
                 isLightTriggered = true;
             } else if (rect.top + 400 > rect.height && isLightTriggered) {
-                lightLamp.classList.add("opacity-0");
                 lightLamp.classList.remove("opacity-50");
+                lightLamp.classList.add("opacity-0");
                 isLightTriggered = false;
             }
         });
@@ -175,7 +175,7 @@
 >
     <div class="z-40 w-full h-full pt-28 pb-10 px-4 sm:px-16">
         <div
-            class="w-full h-full border-t-2 border-r-2 border-white border-opacity-50 bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl flex flex-col sm:flex-row items-center justify-between gap-5 p-2 pr-5"
+            class="w-full h-full border-t-2 border-r-2 border-white border-opacity-50 bg-gradient-to-tr sm:bg-gradient-to-bl from-expo-90 sm:from-expo-30 to-black-90 sm:to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl flex flex-col sm:flex-row items-center justify-between gap-5 p-2 px-5 transition-all"
         >
             <div
                 class="flex flex-col items-center justify-center w-full sm:h-full sm:w-1/4"
@@ -197,7 +197,7 @@
                             <button on:click={typeSelected}
                                 ><p
                                     id={"brands-type-" + String(i)}
-                                    class="clickable text-sm sm:text-2xl hover:text-expo hover:border-opacity-100 border-opacity-0 border-b-2 border-white transition-all"
+                                    class="clickable text-sm sm:text-2xl hover:border-expo sm:hover:text-expo hover:border-opacity-100 border-opacity-0 border-b-2 border-white transition-all"
                                 >
                                     {el}
                                 </p></button
@@ -206,6 +206,7 @@
                     </div>
                 </div>
             </div>
+
             <div
                 class="grid grid-cols-6 grid-rows-6 items-center justify-center flex-wrap h-full gap-5"
             >

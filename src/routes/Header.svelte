@@ -34,8 +34,6 @@
 
         // Set language
         locale.set(locales[0]);
-
-        // clickout dropdown
     }
 
     var headerSection: HTMLElement;
@@ -56,6 +54,7 @@
             return;
         }
 
+        headerSection.classList.remove("-translate-x-96");
         headerSection.classList.add("translate-x-0");
         hamburgerMenu.classList.add("translate-x-36");
         isLeftMenuActive = true;
@@ -95,8 +94,9 @@
     }
 
     var preventivo = false;
+    var progetto = false; // add it for every /progetto/x
     function checkPreventivo(e: any) {
-        if (e.to.route.id == "/preventivo") {
+        if (e.to.route.id == "/preventivo" && window.innerWidth > 640) {
             preventivo = true;
             headerSection.classList.remove("fixed");
             headerSection.classList.add("absolute");
@@ -118,7 +118,11 @@
 
         function onResize() {
             if (window.innerWidth < 640) {
+                hamburgerMenu.classList.remove("translate-x-36");
+                headerSection.classList.remove("absolute", "translate-x-0");
+
                 headerSection.classList.add(
+                    "-translate-x-96",
                     "bg-gradient-to-b",
                     "from-expo-90",
                     "from-5%",
@@ -126,9 +130,10 @@
                     "to-35%",
                     "border-opacity-30",
                     "border-r-2",
-                    "border-r-white"
+                    "border-r-white",
+                    "fixed"
                 );
-                hamburgerMenu.classList.remove("translate-x-36");
+
                 isLeftMenuActive = false;
                 return;
             }
@@ -158,6 +163,7 @@
                 );
                 headerSection.classList.add("sm:bg-neutral-900");
             }
+
             addHeaderBigSize();
             headerSection.classList.add("sm:bg-neutral-900");
         }
@@ -349,7 +355,7 @@
             >
                 <li>{locales[0]}</li>
                 <ul
-                    class="dropdown-menu opacity-0 bottom-96 transition-all absolute bg-expo px-4 py-2 flex sm:flex-col justify-center items-center gap-2"
+                    class="dropdown-menu opacity-0 -left-96 sm:bottom-96 transition-all absolute bg-expo px-4 py-2 flex sm:flex-col justify-center items-center gap-2"
                     bind:this={languagesDropDownMenu}
                 >
                     {#each locales as l, i}
@@ -399,8 +405,14 @@
 </div>
 
 <style>
+    @media (min-width: 640px) {
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            transform: translateY(calc(99% + 24rem));
+        }
+    }
     .dropdown:hover > .dropdown-menu {
         opacity: 1;
-        transform: translateY(calc(99% + 24rem));
+        transform: translate(calc(24rem - 25%), 100%);
     }
 </style>

@@ -34,6 +34,8 @@ const config = {
                 halfScreen: "50vh",
                 fifthScreen: "20vh",
                 120: "30rem",
+                112: "28rem",
+                108: "27rem",
             },
             animation: {
                 "enter-alert": "enter-alert 12s linear",
@@ -46,6 +48,7 @@ const config = {
             },
             zIndex: {
                 99: 99,
+                2: 2,
             },
             translate: {
                 leftBlobInitialY: "150%",
