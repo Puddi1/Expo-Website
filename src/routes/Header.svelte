@@ -355,7 +355,7 @@
             >
                 <li>{locales[0]}</li>
                 <ul
-                    class="dropdown-menu opacity-0 -left-96 sm:bottom-96 transition-all absolute bg-expo px-4 py-2 flex sm:flex-col justify-center items-center gap-2"
+                    class="dropdown-menu opacity-0 bottom-96 transition-all absolute bg-expo px-4 py-2 flex sm:flex-col justify-center items-center gap-2 pointer-events-none"
                     bind:this={languagesDropDownMenu}
                 >
                     {#each locales as l, i}
@@ -405,14 +405,9 @@
 </div>
 
 <style>
-    @media (min-width: 640px) {
-        .dropdown:hover > .dropdown-menu {
-            opacity: 1;
-            transform: translateY(calc(99% + 24rem));
-        }
-    }
     .dropdown:hover > .dropdown-menu {
         opacity: 1;
-        transform: translate(calc(24rem - 25%), 100%);
+        transform: translateY(calc(99% + 24rem));
+        pointer-events: all;
     }
 </style>

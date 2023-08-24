@@ -4,10 +4,14 @@
 
     import { t } from "$lib/i18n";
 
+    import HomeSafeFramework from "./HomeSafeFramework.svelte";
+    import HomeService from "./HomeService.svelte";
     import { homeOffsetHeight } from "$lib/index";
     import { headerList } from "$lib/index";
     $: headerList.set([
         ["/", $t("header.arredo")],
+        ["/cornici/cassaforte", "Cassaforte"],
+        ["/cornici#servizi", "Servizi"],
         ["/preventivo", $t("header.contatta")],
     ]);
     import { cornici, arredo } from "$lib/index";
@@ -53,3 +57,6 @@
         alt="Home Cucina Background"
     />
 </main>
+
+<HomeSafeFramework />
+<HomeService />

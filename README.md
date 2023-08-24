@@ -21,6 +21,8 @@ write reademe
 1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
 1. deploy test
 
+1. Set secondary headers to absolute -> homesection = 0 -> abssolute header so ez to implement
+
 1. Dynamicity [progetto]
 1. carouselle images
 1. effect projects images bar scrolling, very near!
