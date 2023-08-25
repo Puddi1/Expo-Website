@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ButtonHeader from "./ButtonHeader.svelte";
+    import { beforeNavigate } from "$app/navigation";
+    beforeNavigate(checkHeaderStatus);
 
     import { arredo, cornici } from "$lib/index";
     var _arredo: boolean = false;
@@ -91,21 +93,91 @@
         }
     }
 
+    var isHomePage = false;
+    function checkHeaderStatus(e: any) {
+        if (e.to.route.id == "/" || e.to.route.id == "/cornici") {
+            isHomePage = true;
+            headerSection.classList.remove("absolute");
+            headerSection.classList.add("fixed");
+
+            onLoading();
+            return;
+        } else {
+            isHomePage = false;
+            headerSection.classList.remove("fixed");
+            headerSection.classList.add("absolute");
+
+            onLoading();
+            return;
+        }
+    }
+
+    function onLoading() {
+        if (window.innerWidth >= 640) {
+            headerSection.classList.remove(
+                "bg-gradient-to-b",
+                "from-expo-90",
+                "from-5%",
+                "to-black-90",
+                "to-35%",
+                "border-opacity-30"
+            );
+
+            if (!isHomePage) {
+                headerSection.classList.remove("shadow-2xl");
+                headerSection.classList.remove(
+                    "sm:bg-opacity-80",
+                    "sm:backdrop-blur",
+                    "fixed",
+                    "sm:border-b-2"
+                );
+                //
+                headerSection.classList.add("shadow-none");
+                headerSection.classList.add(
+                    "sm:bg-opacity-0",
+                    "sm:backdrop-blur-none",
+                    "absolute"
+                );
+                headerSection.classList.remove("sm:bg-neutral-900");
+                return;
+            } else {
+                headerSection.classList.add("sm:border-b-2");
+            }
+
+            addHeaderBigSize();
+
+            headerSection.classList.add("sm:bg-neutral-900");
+        } else {
+            headerSection.classList.add(
+                "bg-gradient-to-b",
+                "from-expo-90",
+                "from-5%",
+                "to-black-90",
+                "to-35%",
+                "border-opacity-30",
+                "border-r-2",
+                "border-r-white"
+            );
+        }
+    }
+
     var mounted = false;
     onMount(() => {
         mounted = true;
 
-        if (_homeOffsetHeight == 0) {
-            headerSection.classList.remove("fixed");
-            headerSection.classList.add("absolute");
-            return;
+        if (
+            window.location.pathname == "/" ||
+            window.location.pathname == "/cornici"
+        ) {
+            isHomePage = true;
         } else {
-            headerSection.classList.remove("absolute");
-            headerSection.classList.add("fixed");
+            isHomePage = false;
         }
 
         window.addEventListener("scroll", onScroll);
         window.addEventListener("resize", onResize);
+
+        onLoading();
 
         function onResize() {
             if (window.innerWidth < 640) {
@@ -138,7 +210,7 @@
                 "border-opacity-30"
             );
 
-            if (_homeOffsetHeight == 0) {
+            if (!isHomePage) {
                 headerSection.classList.remove("shadow-2xl");
                 headerSection.classList.remove(
                     "sm:bg-opacity-80",
@@ -159,54 +231,8 @@
             headerSection.classList.add("sm:bg-neutral-900");
         }
 
-        // Under 650px width
-
-        // on loading and over 650px width
-        if (window.innerWidth >= 640) {
-            headerSection.classList.remove(
-                "bg-gradient-to-b",
-                "from-expo-90",
-                "from-5%",
-                "to-black-90",
-                "to-35%",
-                "border-opacity-30"
-            );
-
-            if (_homeOffsetHeight == 0) {
-                headerSection.classList.remove("shadow-2xl");
-                headerSection.classList.remove(
-                    "sm:bg-opacity-80",
-                    "sm:backdrop-blur",
-                    "fixed"
-                );
-                //
-                headerSection.classList.add("shadow-none");
-                headerSection.classList.add(
-                    "sm:bg-opacity-0",
-                    "sm:backdrop-blur-none",
-                    "absolute"
-                );
-                headerSection.classList.add("sm:bg-neutral-900");
-            }
-
-            addHeaderBigSize();
-
-            headerSection.classList.add("sm:bg-neutral-900");
-        } else {
-            headerSection.classList.add(
-                "bg-gradient-to-b",
-                "from-expo-90",
-                "from-5%",
-                "to-black-90",
-                "to-35%",
-                "border-opacity-30",
-                "border-r-2",
-                "border-r-white"
-            );
-        }
-        // Over 650px width
         function onScroll() {
-            if (window.innerWidth < 640 || _homeOffsetHeight == 0) {
+            if (window.innerWidth < 640 || !isHomePage) {
                 return;
             }
 

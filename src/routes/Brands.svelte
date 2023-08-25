@@ -138,11 +138,28 @@
         imagesBrands.push(o);
     }
 
+    function runLightLogic() {
+        if (window.location.pathname != "/" || !mounted) {
+            return;
+        }
+
+        let rect = lightLamp.getBoundingClientRect();
+        if (rect.top + 400 <= rect.height && !isLightTriggered) {
+            lightLamp.classList.remove("opacity-0");
+            lightLamp.classList.add("opacity-50");
+            isLightTriggered = true;
+        } else if (rect.top + 400 > rect.height && isLightTriggered) {
+            lightLamp.classList.remove("opacity-50");
+            lightLamp.classList.add("opacity-0");
+            isLightTriggered = false;
+        }
+    }
+
+    var isLightTriggered = false;
     var mounted = false;
     onMount(() => {
         mounted = true;
 
-        var isLightTriggered = false;
         let rect = lightLamp.getBoundingClientRect();
         if (rect.top + 400 <= rect.height) {
             lightLamp.classList.remove("opacity-0");
@@ -154,18 +171,7 @@
             isLightTriggered = false;
         }
 
-        window.addEventListener("scroll", () => {
-            let rect = lightLamp.getBoundingClientRect();
-            if (rect.top + 400 <= rect.height && !isLightTriggered) {
-                lightLamp.classList.remove("opacity-0");
-                lightLamp.classList.add("opacity-50");
-                isLightTriggered = true;
-            } else if (rect.top + 400 > rect.height && isLightTriggered) {
-                lightLamp.classList.remove("opacity-50");
-                lightLamp.classList.add("opacity-0");
-                isLightTriggered = false;
-            }
-        });
+        window.addEventListener("scroll", runLightLogic);
     });
 </script>
 

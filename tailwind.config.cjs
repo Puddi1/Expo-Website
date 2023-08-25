@@ -31,6 +31,7 @@ const config = {
             },
             height: {
                 threeQuarterScreen: "75vh",
+                sixthyScreen: "60vh",
                 halfScreen: "50vh",
                 fifthScreen: "20vh",
                 120: "30rem",
@@ -65,6 +66,8 @@ const config = {
             },
             boxShadow: {
                 "light-shadow": "0 30px 40px rgba(0,0,0,.1)",
+                "light-theater": "0 30px 40px rgba(0,0,0,.8)",
+                "dark-theater": "0 20px 80px 20px rgba(0,0,0,.8)",
             },
             colors: {
                 expo: "#154CC1",

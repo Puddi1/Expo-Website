@@ -1,8 +1,9 @@
 <script lang="ts">
     export var placeholder: string = "preventivo";
+    export var route: string = "/preventivo";
 </script>
 
-<a href="/preventivo">
+<a href={route}>
     <button
         class="bg-expo px-2 py-3 flex flex-row justify-center items-center gap-2 shadow-2xl hover:ring-2 ring-white transition-all h-12 w-32"
     >

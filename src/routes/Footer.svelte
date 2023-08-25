@@ -82,7 +82,7 @@
                 class="flex items-center justify-center w-auto px-4 border-l-2 border-l-slate-300"
             >
                 <ul class="flex flex-col gap-5 justify-center items-start">
-                    <li class="border-b-2 border-white">
+                    <li class="border-b-2 border-white font-extrabold">
                         {$t("footer.sezioni")}
                     </li>
                     <ul
@@ -103,7 +103,7 @@
                 <ul
                     class="flex flex-col flex-wrap items-start justify-center gap-5"
                 >
-                    <li class="border-b-2 border-white">
+                    <li class="border-b-2 border-white font-extrabold">
                         {$t("footer.contatti")}
                     </li>
                     <li

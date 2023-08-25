@@ -23,8 +23,13 @@
     arredo.set(true);
 
     var home: HTMLElement;
+    function setOffsetHeight() {
+        if (!mounted) return;
 
-    let mounted = false;
+        homeOffsetHeight.set(home.offsetHeight);
+    }
+
+    var mounted = false;
     onMount(() => {
         mounted = true;
 
@@ -32,7 +37,7 @@
         window.addEventListener("resize", onResize);
 
         function onResize() {
-            homeOffsetHeight.set(home.offsetHeight);
+            setOffsetHeight();
         }
     });
 </script>
@@ -55,11 +60,15 @@
             <ButtonHome placeholder={$t("home.heroButtonArredo")} />
         </div>
     </div>
-    <img
+    <video
         class="absolute object-top sm:object-right-top object-cover w-full h-full z-0"
-        src="/background/cucinaHome.png"
-        alt="Home Cucina Background"
-    />
+        autoplay
+        loop
+        muted
+    >
+        <source src="/video/cats.mp4" type="video/mp4" />
+        <track kind="captions" />
+    </video>
 </main>
 
 <Us />
