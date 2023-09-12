@@ -28,6 +28,7 @@ const config = {
             },
             width: {
                 120: "30rem",
+                "full-2": "calc(100% - 2px)",
             },
             height: {
                 threeQuarterScreen: "75vh",
@@ -37,14 +38,27 @@ const config = {
                 120: "30rem",
                 112: "28rem",
                 108: "27rem",
+                "full-2": "calc(100% - 2px)",
             },
             animation: {
                 "enter-alert": "enter-alert 12s linear",
+                "loading-spinner": "loading-spinner 2s linear infinite",
             },
             keyframes: {
                 "enter-alert": {
                     "9%": { transform: "translateX(-0.5%)" },
                     "91%": { transform: "translateX(0%)" },
+                },
+                "loading-spinner": {
+                    "0%": {
+                        transform: "scale(1)",
+                    },
+                    "50%": {
+                        transform: "scale(1.2)",
+                    },
+                    "100%": {
+                        transform: "scale(1)",
+                    },
                 },
             },
             zIndex: {

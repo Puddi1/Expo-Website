@@ -3,6 +3,7 @@
     import { homeOffsetHeight } from "$lib/index";
     import { t } from "$lib/i18n";
     import { headerList } from "$lib/index";
+
     $: headerList.set([
         ["/cornici", $t("header.cornici")],
         ["/servizio", $t("header.servizio")],
@@ -40,53 +41,83 @@
     ];
 
     var leftSide: HTMLElement;
+    var rightSide: HTMLElement;
     var imagesFrame: HTMLElement;
-    function HandleMoveFrame(e: any) {
-        let percFromRight = (e.clientX / imagesFrame.offsetWidth) * 100;
-        console.log(percFromRight);
+    function handleCarouselleChange(e: any) {
+        let length = e.target.id.length;
+        let id = e.target.id[length - 1];
+        console.log(id);
 
-        leftSide.style.width = `${percFromRight}%`;
+        console.log(leftSide);
+        console.log(rightSide);
+    }
 
-        // let optc = percFromRight;
-        // leftSide.style.opacity = `${optc}`;
+    var loadingScreenImagesFrame: HTMLElement;
+    var loadingScreenFaviconImagesFrame: HTMLElement;
+    function onPageLoaded() {
+        const element = document.querySelector(".jx-knightlab") as HTMLElement;
+        element.style.visibility = "hidden";
+        loadingScreenFaviconImagesFrame.classList.add("bg-opacity-0");
+        loadingScreenImagesFrame.classList.add("pointer-events-none");
+        loadingScreenImagesFrame.classList.add("opacity-0");
     }
 
     var mounted = false;
     onMount(() => {
+        window.addEventListener("load", onPageLoaded);
         mounted = true;
         homeOffsetHeight.set(0);
 
-        imagesFrame.addEventListener("mousemove", HandleMoveFrame);
-        imagesFrame.addEventListener("ontouchmove", (e: any) => {
-            HandleMoveFrame(e.touches[0]);
-        });
+        loadingScreenFaviconImagesFrame.classList.add(
+            "animate-loading-spinner"
+        );
     });
 </script>
+
+<head>
+    <script
+        src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"
+    ></script>
+    <link
+        rel="stylesheet"
+        href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css"
+    />
+</head>
 
 <main
     class="flex items-center justify-evenly lg:justify-center flex-col lg:flex-row gap-24 lg:gap-1 min-h-screen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% py-36 lg:py-24 px-5 lg:px-10"
 >
     <div
-        class="flex items-center justify-center flex-col w-full h-full gap-5 order-2 lg:order-1"
+        class="flex items-center justify-center flex-col w-full h-full gap-10 order-2 lg:order-1"
     >
-        <!-- tutte le foto doppio layer + carouselle -->
-        <div
-            bind:this={imagesFrame}
-            class="relative flex items-center justify-center border-2 border-white w-full h-108 gap-5"
-        >
-            <!-- manage with after the center styles -->
-            <img
-                bind:this={leftSide}
-                class="object-cover absolute left-0 border-r-8 border-white h-full w-full z-2"
-                src="/background/cucinaHome.png"
-                alt=""
-            />
-
-            <img
-                class="object-cover absolute h-full w-full"
-                src="/background/gattoLook.jpeg"
-                alt=""
-            />
+        <div class="relative w-full h-full flex items-center justify-center">
+            <div
+                bind:this={loadingScreenImagesFrame}
+                class="absolute w-full-2 h-full-2 bg-black z-2 flex items-center justify-center transition-all"
+            >
+                <img
+                    bind:this={loadingScreenFaviconImagesFrame}
+                    class="transition-all"
+                    src="/favicon/expoArredoWhite.svg"
+                    alt="Expo Arredo Logo White"
+                />
+            </div>
+            <div
+                bind:this={imagesFrame}
+                class="juxtapose relative overflow-hidden border-2 border-white w-full h-108 cursor-col-resize shadow-light-theater z-0"
+            >
+                <img
+                    bind:this={leftSide}
+                    class=""
+                    src="/background/cucinaHome.png"
+                    alt=""
+                />
+                <img
+                    bind:this={rightSide}
+                    src="/background/gattoLook.jpeg"
+                    alt=""
+                />
+            </div>
         </div>
 
         <div class="flex items-center justify-center flex-col gap-3">
@@ -96,14 +127,15 @@
                     {#each photosProject as p, i}
                         <li class="flex items-center justify-center">
                             <input
+                                on:click={handleCarouselleChange}
                                 class="appearance-none w-4 h-4
-                        bg-white focus:bg-expo
-                        focus:ring-2 ring-white ring-offset-1
-                        checked:bg-expo checked:ring-2
-                        cursor-pointer transition-all"
+                                    bg-white focus:bg-expo
+                                    focus:ring-2 ring-white ring-offset-1
+                                    checked:bg-expo checked:ring-2
+                                    cursor-pointer transition-all"
                                 type="radio"
                                 name="carouselleImages"
-                                id="carouselleImages"
+                                id={"carouselle-input-" + i}
                             />
                         </li>
                     {/each}

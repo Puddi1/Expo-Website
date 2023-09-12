@@ -26,6 +26,7 @@
     "type": "module",
     "dependencies": {
         "dotenv": "^16.3.1",
+        "juxtaposejs": "^1.1.6",
         "nodemailer": "^6.9.4"
     }
 }
