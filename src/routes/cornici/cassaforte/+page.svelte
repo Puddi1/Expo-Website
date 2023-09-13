@@ -13,6 +13,7 @@
     cornici.set(true);
 
     import ButtonMiddle from "../ButtonMiddle.svelte";
+    import ButtonMiddleHighContrast from "./ButtonMiddleHighContrast.svelte";
 
     var safeVideo: HTMLVideoElement;
     var buttonVideo: HTMLImageElement;
@@ -82,17 +83,23 @@
         </video>
     </div>
 
-    <div class="flex items-start sm:items-center justify-center w-full h-full">
+    <div class="flex items-center flex-col justify-center gap-5 w-full h-full">
         <h1 class="font-bold text-2xl z-2 text-center">
             Cassaforte a muro, semplice ed efficace: <span
                 class="underline font-extrabold">impossibile notarla</span
             >.
         </h1>
+        <div class="flex items-center justify-center w-full h-full">
+            <ButtonMiddleHighContrast
+                placeholder="Acquista"
+                route="/preventivo"
+            />
+        </div>
     </div>
 </main>
 
 <section
-    class="flex items-center justify-center gap-10 flex-col sm:flex-row min-h-screen w-screen bg-gradient-to-b from-expo from-5% to-black py-5 px-5 sm:px-10"
+    class="flex items-center justify-center gap-10 flex-col sm:flex-row min-h-screen w-screen bg-gradient-to-b from-expo from-5% to-black py-20 sm:py-5 px-5 sm:px-10"
 >
     <!-- Left -->
     <div class="flex items-center justify-center flex-col gap-14">

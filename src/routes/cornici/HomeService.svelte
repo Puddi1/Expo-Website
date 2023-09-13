@@ -31,7 +31,7 @@
 
 <main
     id="servizi"
-    class="flex items-center justify-center min-h-screen w-screen bg-gradient-to-bl from-expo from-5% to-black to-95%"
+    class="flex items-center justify-center min-h-screen w-screen bg-gradient-to-bl from-expo from-5% to-black to-95% pb-10"
 >
     <div
         class="flex items-center justify-center flex-col gap-16 lg:gap-52 w-full h-full p-10"

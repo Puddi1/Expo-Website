@@ -20,7 +20,7 @@
 
 <section
     id="noi"
-    class="flex items-center justify-center min-h-screen w-screen bg-gradient-to-br from-black from-5% to-expo to-95%"
+    class="flex items-center justify-center min-h-screen w-screen bg-gradient-to-br from-black from-5% to-expo to-95% py-10"
 >
     <div
         class="flex items-center justify-center w-full h-full px-8 sm:px-16 py-4"

@@ -19,16 +19,13 @@ git clone ..
 write reademe
 
 1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
-1. deploy test
-
-1. Set secondary headers to absolute -> homesection = 0 -> abssolute header so ez to implement
+1. production deploy test
 
 <!-- Afet we get the ok -->
 
 1. refactor: more clear herder logic
 1. Dynamicity [progetto]
 1. carouselle images
-1. effect projects images bar scrolling, very near!
 
 1. sometimes header hasn't h-full on not sm / true??
 1. little bug on mobile view when scrolling over brands (has to do w/ lamp opacity light layer) if persistent keep it light up on lower screens
