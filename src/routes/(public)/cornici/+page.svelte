@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import ButtonHome from "../../ButtonHome.svelte";
+    import ButtonHome from "../ButtonHome.svelte";
 
     import { t } from "$lib/i18n";
 
