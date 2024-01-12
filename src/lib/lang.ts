@@ -1,3 +1,4 @@
+// Non-Dynamic Website Text
 export const lang: Object = {
     IT: {
         "header.arredo": "Arredo",

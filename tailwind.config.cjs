@@ -30,6 +30,13 @@ const config = {
                 120: "30rem",
                 "full-2": "calc(100% - 2px)",
             },
+            minWidth: {
+                16: "4rem",
+                32: "8rem",
+                64: "16rem",
+                96: "24rem",
+                128: "32rem",
+            },
             height: {
                 threeQuarterScreen: "75vh",
                 sixthyScreen: "60vh",
@@ -39,6 +46,18 @@ const config = {
                 112: "28rem",
                 108: "27rem",
                 "full-2": "calc(100% - 2px)",
+            },
+            minHeight: {
+                16: "4rem",
+                32: "8rem",
+                40: "10rem",
+                42: "10.5rem",
+                43: "10.75rem",
+                44: "11rem",
+                48: "12rem",
+                64: "16rem",
+                96: "24rem",
+                128: "32rem",
             },
             animation: {
                 "enter-alert": "enter-alert 12s linear",
@@ -98,9 +117,6 @@ const config = {
             },
             padding: {
                 header: "0px 8.5% 0px",
-            },
-            minWidth: {
-                16: "4rem",
             },
             brightness: {
                 175: "1.75",

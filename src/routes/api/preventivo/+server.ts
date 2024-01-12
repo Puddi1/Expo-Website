@@ -1,4 +1,4 @@
-import "dotenv/config";
+import { SMTP_SERVICE, SMTP_USERNAME, SMTP_PASSWORD, SMTP_PORT, SMTP_DESTINATION } from '$env/static/private';
 import nodemailer from "nodemailer";
 
 var trs = nodemailer.createTransport({

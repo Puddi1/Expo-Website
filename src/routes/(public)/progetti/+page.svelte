@@ -93,7 +93,7 @@
         fn: (a: any, b: any) => boolean,
         a: Array<any>,
         idx: number,
-        sIdx: number
+        sIdx: number,
     ) {
         let s = a;
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.postcss";
+    import "../../app.postcss";
 
     import Header from "./Header.svelte";
     import ContactSection from "./ContactSection.svelte";
