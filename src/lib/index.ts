@@ -5,4 +5,4 @@ export var homeOffsetHeight = writable(0);
 export var headerList = writable([[""]]);
 export var arredo = writable(false);
 export var cornici = writable(false);
-export var popUp = writable(["", "", false]);
+export var popUp = writable([false, "", ""]);

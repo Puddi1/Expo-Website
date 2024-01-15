@@ -2,41 +2,127 @@
     import { onMount } from "svelte";
     import { t } from "$lib/i18n"; // necessary?
     import { popUp } from "$lib/index";
-    import type { ActionData, PageData } from "./$types";
 
     var hasForgotPassword = false;
     function changeForgotStatus() {
         hasForgotPassword = !hasForgotPassword;
     }
 
-    // PopUp trigger
-    export var data: PageData;
-    export var form: ActionData;
+    var adminForm: HTMLFormElement;
 
-    $: console.log(data);
-    $: handleFormChange(form);
+    async function handleFormRequest(e: SubmitEvent) {
+        if (!mounted) return;
 
-    function handleFormChange(f: ActionData) {
-        if ((mounted = false)) {
+        if (adminForm.name == "login") {
+            var eForm: HTMLFormControlsCollection = adminForm.elements;
+
+            var iEmail = eForm.namedItem("email") as HTMLInputElement;
+            var iPassword = eForm.namedItem("password") as HTMLInputElement;
+
+            if (iEmail.value == null || iPassword.value == null) {
+                popUp.set([
+                    false,
+                    "Form Error",
+                    "Couldn't be able to get a proper Form input",
+                ]);
+                return;
+            }
+
+            var reqBody: { [key: string]: string } = {
+                email: iEmail.value,
+                password: iPassword.value,
+            };
+
+            await fetch("/api/admin/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(reqBody),
+            })
+                .then((res: any) => {
+                    // success popUp
+                    if (res.status != 200) {
+                        let popUpSta = $t("popUp.errorStatus");
+                        let popUpMsg = $t("popUp.errorMessage");
+
+                        let sta = popUpSta + res.status;
+                        let msg = popUpMsg + res.statusText;
+
+                        popUp.set([false, sta, msg]);
+                        return;
+                    }
+
+                    let popUpSta = $t("popUp.successStatus");
+                    let popUpMsg = $t("popUp.successMessage");
+
+                    let sta = popUpSta + res.status;
+                    let msg = popUpMsg + res.statusText;
+
+                    popUp.set([true, sta, msg]);
+                })
+                .catch((err) => {
+                    // error request
+                    popUp.set([false, $t("popUp.errorRequest"), err]);
+                });
+
             return;
         }
-        console.log(f);
 
-        if (f == null) {
+        // reset
+        var eForm: HTMLFormControlsCollection = adminForm.elements;
+        var iEmail = eForm.namedItem("email") as HTMLInputElement;
+
+        if (iEmail.value == null) {
+            popUp.set([
+                false,
+                "Form Error",
+                "Couldn't be able to get a proper Form input",
+            ]);
             return;
         }
 
-        if (f.success) {
-            popUp.set([f.type, f.message, true]);
-            return;
-        }
+        var reqBody: { [key: string]: string } = {
+            email: iEmail.value,
+        };
 
-        popUp.set([f.type, f.message, false]);
+        await fetch("/api/admin/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(reqBody),
+        })
+            .then((res: any) => {
+                // success popUp
+                if (res.status != 200) {
+                    let popUpSta = $t("popUp.errorStatus");
+                    let popUpMsg = $t("popUp.errorMessage");
+
+                    let sta = popUpSta + res.status;
+                    let msg = popUpMsg + res.statusText;
+
+                    popUp.set([false, sta, msg]);
+                    return;
+                }
+
+                let popUpSta = $t("popUp.successStatus");
+                let popUpMsg = $t("popUp.successMessage");
+
+                let sta = popUpSta + res.status;
+                let msg = popUpMsg + res.statusText;
+
+                popUp.set([true, sta, msg]);
+            })
+            .catch((err) => {
+                // error request
+                popUp.set([false, $t("popUp.errorRequest"), err]);
+            });
+
+        return;
     }
 
     var mounted = false;
     onMount(() => {
         mounted = true;
+
+        adminForm.addEventListener("submit", handleFormRequest);
     });
 </script>
 
@@ -59,9 +145,8 @@
 
         {#if hasForgotPassword}
             <form
+                bind:this={adminForm}
                 name="reset"
-                action="?/reset"
-                method="post"
                 class="flex items-center justify-center flex-col gap-20 w-full sm:min-w-128 sm:w-6/12"
             >
                 <div
@@ -108,9 +193,8 @@
             </form>
         {:else}
             <form
+                bind:this={adminForm}
                 name="login"
-                action="?/login"
-                method="post"
                 class="flex items-center justify-center flex-col gap-20 w-full sm:min-w-128 sm:w-6/12"
             >
                 <div

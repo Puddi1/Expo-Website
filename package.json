@@ -27,7 +27,7 @@
     "dependencies": {
         "htmx.org": "^1.9.10",
         "juxtaposejs": "^1.1.6",
-        "nodemailer": "^6.9.4",
+        "nodemailer": "^6.9.8",
         "pocketbase": "^0.20.1"
     }
 }

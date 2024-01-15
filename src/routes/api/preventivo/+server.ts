@@ -21,7 +21,7 @@ export async function POST(req: any) {
         text: reqParams.comment,
     };
 
-    const promise = new Promise(async (resolve, reject) => {
+    const promiseSMTP = new Promise(async (resolve, reject) => {
         trs.sendMail(mailOptions, (err, info) => {
             if (err) {
                 reject(err);
@@ -31,7 +31,7 @@ export async function POST(req: any) {
         });
     });
 
-    return await promise
+    return await promiseSMTP
         .then((info) => {
             return new Response(JSON.stringify(info), {
                 status: 200,

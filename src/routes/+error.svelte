@@ -1,11 +1,18 @@
 <script lang="ts">
-    import { page } from "$app/stores";
-    import ButtonHome from "./ButtonHome.svelte";
+    import "../app.postcss";
 
+    import { page } from "$app/stores";
     import { t } from "$lib/i18n";
+    import PopUp from "$lib/PopUp.svelte";
+
+    import ButtonHome from "./(public)/ButtonHome.svelte";
+    import Header from "./(public)/Header.svelte";
+    import ContactSection from "./(public)/ContactSection.svelte";
+    import Footer from "./(public)/Footer.svelte";
 
     import { headerList } from "$lib/index";
     $: headerList.set([
+        ["/arredo", $t("header.arredo")],
         ["/cornici", $t("header.cornici")],
         ["/servizio", $t("header.servizio")],
         ["/progetti", $t("header.progetti")],
@@ -21,6 +28,9 @@
         _message = e.error?.message;
     });
 </script>
+
+<Header />
+<PopUp />
 
 <main
     class="bg-white w-screen h-screen flex items-center justify-center flex-col z-40 relative overflow-hidden"
@@ -41,3 +51,6 @@
         alt="Home Cucina Background"
     />
 </main>
+
+<ContactSection />
+<Footer />

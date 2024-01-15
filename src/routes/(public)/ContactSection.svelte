@@ -39,7 +39,7 @@
                     let sta = popUpSta + res.status;
                     let msg = popUpMsg + res.statusText;
 
-                    popUp.set([sta, msg, false]);
+                    popUp.set([false, sta, msg]);
                     return;
                 }
 
@@ -49,11 +49,11 @@
                 let sta = popUpSta + res.status;
                 let msg = popUpMsg + res.statusText;
 
-                popUp.set([sta, msg, true]);
+                popUp.set([true, sta, msg]);
             })
             .catch((err) => {
                 // error request
-                popUp.set([$t("popUp.errorRequest"), err, false]);
+                popUp.set([false, $t("popUp.errorRequest"), err]);
             });
     }
 

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { popUp } from "$lib/index";
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
+    var mounted = false;
 
     var errorClass = [
         "bg-gradient-to-bl",
@@ -19,31 +20,48 @@
     var animationClass = "animate-enter-alert";
     var popUpElement: HTMLElement;
     var popUpContainer: HTMLElement;
-    var _popUp: (string | boolean)[];
+
+    type PopUpMessage = {
+        success: Boolean;
+        title: String;
+        message: String;
+    };
+    var _popUp: PopUpMessage = {
+        success: false,
+        title: "",
+        message: "",
+    };
+
     popUp.subscribe(async (e) => {
         // Remember to toggle off the animation class every time is called
         // from the callgin block for time space, better solution?
-        _popUp = e;
+        _popUp.success = e[0] as Boolean;
+        _popUp.title = e[1] as String;
+        _popUp.message = e[2] as String;
+
+        if (_popUp.message == "" || _popUp.title == "") {
+            return;
+        }
+
         sendPopUp();
     });
 
     function sendPopUp() {
         if (!mounted) return;
 
-        if (_popUp[2]) {
-            popUpElement.classList.remove(...errorClass);
-            popUpElement.classList.add(...successClass);
+        popUpElement.classList.remove(...errorClass);
+        popUpElement.classList.remove(...successClass);
+        popUpContainer.classList.remove(animationClass);
 
+        if (_popUp.success) {
+            popUpElement.classList.add(...successClass);
             popUpContainer.classList.add(animationClass);
         } else {
-            popUpElement.classList.remove(...successClass);
             popUpElement.classList.add(...errorClass);
-
             popUpContainer.classList.add(animationClass);
         }
     }
 
-    var mounted = false;
     onMount(() => {
         mounted = true;
     });
@@ -63,7 +81,7 @@
         rounded-xl"
         bind:this={popUpElement}
     >
-        <h1 class=" font-extrabold">{_popUp[0]}</h1>
-        <p class="">{_popUp[1]}</p>
+        <h1 class=" font-extrabold">{_popUp.title}</h1>
+        <p class="">{_popUp.message}</p>
     </div>
 </div>
