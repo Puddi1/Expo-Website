@@ -49,7 +49,7 @@
     var mounted = false;
     onMount(() => {
         mounted = true;
-        homeOffsetHeight.set(0);
+        homeOffsetHeight.set(128);
 
         buttonVideo.addEventListener("click", buttonVideoClick);
 
@@ -58,7 +58,7 @@
 </script>
 
 <main
-    class="flex items-center justify-center flex-col gap-5 h-sixthyScreen sm:min-h-screen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% pt-24 px-5 sm:px-10"
+    class="flex items-center justify-center flex-col gap-0 h-sixthyScreen sm:min-h-screen w-screen bg-gradient-to-b from-black from-0% to-expo to-90% pt-40 px-5 sm:px-10"
 >
     <div
         class="relative h-full w-full lg:w-3/4 flex items-center justify-center p-5"
@@ -83,13 +83,13 @@
         </video>
     </div>
 
-    <div class="flex items-center flex-col justify-center gap-5 w-full h-full">
+    <div class="flex items-center flex-col justify-center gap-20 w-full h-full">
         <h1 class="font-bold text-2xl z-2 text-center">
             Cassaforte a muro, semplice ed efficace: <span
-                class="underline font-extrabold">impossibile notarla</span
+                class="underline font-extrabold">Impossibile notarla</span
             >.
         </h1>
-        <div class="flex items-center justify-center w-full h-full">
+        <div class="flex items-center justify-center w-full">
             <ButtonMiddleHighContrast
                 placeholder="Acquista"
                 route="/preventivo"
@@ -99,7 +99,7 @@
 </main>
 
 <section
-    class="flex items-center justify-center gap-10 flex-col sm:flex-row min-h-screen w-screen bg-gradient-to-b from-expo from-5% to-black py-20 sm:py-5 px-5 sm:px-10"
+    class="flex items-center justify-center min-h-half-viewport gap-10 flex-col sm:flex-row w-screen bg-gradient-to-b from-expo from-5% to-black py-20 sm:py-5 px-5 sm:px-10"
 >
     <!-- Left -->
     <div class="flex items-center justify-center flex-col gap-14">

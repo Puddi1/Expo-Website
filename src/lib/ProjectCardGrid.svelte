@@ -11,12 +11,14 @@
     ];
 </script>
 
-<a class="flex items-center justify-center flex-col h-full" {href}
+<a
+    class="flex items-center justify-center flex-col h-full clickable transition-all"
+    {href}
     ><div
         class="flex items-center justify-center flex-col gap-5 transition-all hover:shadow-2xl
                 border-l-2 border-b-2 border-white border-opacity-50
-                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl
-                py-4 px-2 sm:px-5"
+                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm
+                px-5 py-12 sm:px-5"
     >
         <div>
             <h1 class="text-2xl font-extrabold">{Title}</h1>

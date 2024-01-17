@@ -125,10 +125,10 @@
         return s;
     }
 
-    function LesserThan(a: any, b: any) {
+    function aLesserThanB(a: any, b: any) {
         return a < b;
     }
-    function BetterThan(a: any, b: any) {
+    function aBetterThanB(a: any, b: any) {
         return a > b;
     }
 
@@ -138,10 +138,10 @@
             case "Sort-Projects":
                 break;
             case "A-Z":
-                Projects = BubbleSort(BetterThan, Projects, 1, -1);
+                Projects = BubbleSort(aBetterThanB, Projects, 1, -1);
                 break;
             case "Z-A":
-                Projects = BubbleSort(LesserThan, Projects, 1, -1);
+                Projects = BubbleSort(aLesserThanB, Projects, 1, -1);
                 break;
             default:
                 console.error("No projects fetching rule");
@@ -151,7 +151,7 @@
     var mounted = false;
     onMount(() => {
         mounted = true;
-        homeOffsetHeight.set(0);
+        homeOffsetHeight.set(128);
     });
 </script>
 

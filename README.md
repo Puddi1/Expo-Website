@@ -1,18 +1,33 @@
 # Expo-Website
 
-Expo Arredo Website
+Expo Arredo Website. Front-end with a lightweight backend to add information dynamically to the webside through an admin dashboard.
 
-Vite
-Tailwind
-Sveltekit
+Technologies used: Sveltekit Tailwind Pocketbase Vite.
+
 Docker
 CapRover
 
 ## Usage
 
-```git
-git clone ..
+Clone the repo
+```sh
+git clone https://github.com/Puddi1/Expo-Website.git
 ```
+
+Add environment variables:
+
+Run a pocketbase server and a
+
+Run locally:
+```sh
+npm run dev
+```
+
+Build:
+```sh
+git run build
+```
+
 
 ## todo
 
@@ -21,14 +36,21 @@ write reademe
 1. Little broken: header change from small to big view and viceversa ?? even worth it? even possible?
 1. production deploy test
 
-<!-- Afet we get the ok -->
-
 1. refactor: more clear herder logic
 1. Dynamicity [progetto]
 1. carouselle images
 
 1. sometimes header hasn't h-full on not sm / true??
 1. little bug on mobile view when scrolling over brands (has to do w/ lamp opacity light layer) if persistent keep it light up on lower screens
+
+
+
+
+
+
+
+
+
 
 ## create-svelte
 

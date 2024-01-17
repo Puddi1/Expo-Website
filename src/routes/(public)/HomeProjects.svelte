@@ -10,7 +10,7 @@
     class="flex items-center justify-center min-h-screen w-screen bg-gradient-to-br from-black from-5% to-expo to-95%"
 >
     <div
-        class="flex flex-col sm:flex-row justify-center items-center gap-10 p-10 h-full w-full"
+        class="flex flex-col sm:flex-row justify-center items-center gap-10 p-10 min-h-full min-w-full"
     >
         <div
             class="flex items-center justify-center w-full h-full order-2 sm:order-1"

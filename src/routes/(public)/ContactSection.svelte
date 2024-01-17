@@ -121,21 +121,21 @@
     />
 
     <div
-        class="relative h-full w-full flex flex-col sm:flex-row items-center justify-around p-8 z-50 backdrop-blur-3xl gap-5"
+        class="relative h-full w-full flex flex-col lg:flex-row items-center justify-around p-8 z-50 backdrop-blur-3xl gap-5"
     >
         <div
             class="flex sm:flex-row flex-col items-center justify-center gap-10"
         >
             <div
-                class="w-10/12 h-full
+                class="sm:w-9/12 h-full
                 border-l-2 border-b-2 border-white border-opacity-50
-                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl
+                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm
                 sm:translate-x-7
                 sm:translate-y-1/20
                 py-4 px-5"
             >
                 <ul
-                    class="flex flex-col flex-wrap items-start justify-center gap-5 w-full"
+                    class="flex flex-col flex-wrap items-start justify-center gap-5 w-full px-5 py-12"
                 >
                     <li
                         class="flex flex-row flex-wrap items-center justify-center gap-3 w-full"
@@ -203,9 +203,9 @@
                             alt="Map Maker icon"
                         />
                         <p class="">
-                            {$t("footer.lunVen")} <br /> 9.00 - 12.00 / 14.00 -
-                            18.00 <br />
-                            {$t("footer.sabato")} <br />
+                            {$t("footer.lunVen")} :<br />
+                            9.00 - 12.00 / 14.00 - 18.00 <br />
+                            {$t("footer.sabato")} :<br />
                             {$t("footer.soloAppuntamento")}
                         </p>
                     </li>
@@ -215,17 +215,18 @@
             <div
                 class="w-10/12 h-full
                 border-t-2 border-r-2 border-white border-opacity-50
-                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl
-                sm:-translate-x-7
-                sm:-translate-y-1/4
+                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm
+                sm:-translate-x-16
+                -translate-y-1/40
+                lg:-translate-y-1/4
                 py-4 px-5"
             >
                 <form
                     bind:this={messageForm}
-                    class="flex flex-col justify-center items-center gap-5"
+                    class="flex flex-col justify-center items-center gap-5 px-5 py-12"
                 >
                     <div>
-                        <h1 class=" text-xl font-extrabold">
+                        <h1 class="text-3xl font-extrabold">
                             {$t("contact.formMessage")}
                         </h1>
                     </div>

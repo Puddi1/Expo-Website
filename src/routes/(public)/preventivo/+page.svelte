@@ -7,20 +7,20 @@
     import { headerList } from "$lib/index";
     $: headerList.set([
         ["/", $t("header.arredo")],
+        ["/cornici", $t("header.cornici")],
         ["/servizio", $t("header.servizio")],
         ["/progetti", $t("header.progetti")],
-        ["/#noi", $t("header.noi")],
-        ["/#brands", $t("header.brands")],
-        ["/preventivo", $t("header.contatta")],
     ]);
 
-    import { arredo } from "$lib/index";
-    arredo.set(true);
+    import { cornici, arredo, preventivo } from "$lib/index";
+    arredo.set(false);
+    cornici.set(false);
+    preventivo.set(true);
 
     let mounted = false;
     onMount(() => {
         mounted = true;
-        homeOffsetHeight.set(0);
+        homeOffsetHeight.set(128);
     });
 </script>
 

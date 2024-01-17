@@ -66,7 +66,7 @@
                             class="w-full h-full flex items-center justify-center"
                         >
                             <img
-                                class="object-cover w-full"
+                                class="object-cover w-2/3 sm:w-full"
                                 src={f[0]}
                                 alt=""
                             />
@@ -75,7 +75,7 @@
                             class="w-full h-full flex items-center justify-center"
                         >
                             <img
-                                class="object-cover w-full"
+                                class="object-cover w-2/3 sm:w-full"
                                 src={f[1]}
                                 alt=""
                             />
@@ -93,7 +93,7 @@
                             class="w-full h-full flex items-center justify-center"
                         >
                             <img
-                                class="object-cover w-full"
+                                class="object-cover w-2/3 sm:w-full"
                                 src={f[0]}
                                 alt=""
                             />
@@ -102,7 +102,7 @@
                             class="w-full h-full flex items-center justify-center"
                         >
                             <img
-                                class="object-cover w-full"
+                                class="object-cover w-2/3 sm:w-full"
                                 src={f[1]}
                                 alt=""
                             />

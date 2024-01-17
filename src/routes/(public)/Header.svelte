@@ -4,7 +4,7 @@
     import { beforeNavigate } from "$app/navigation";
     beforeNavigate(checkHeaderStatus);
 
-    import { arredo, cornici } from "$lib/index";
+    import { arredo, cornici, preventivo } from "$lib/index";
     var _arredo: boolean = false;
     arredo.subscribe((e) => {
         _arredo = e;
@@ -12,6 +12,10 @@
     var _cornici: boolean = false;
     cornici.subscribe((e) => {
         _cornici = e;
+    });
+    var _preventivo: boolean = false;
+    preventivo.subscribe((e) => {
+        _preventivo = e;
     });
 
     import { homeOffsetHeight } from "$lib/index";
@@ -73,19 +77,19 @@
             headerSection.classList.remove("shadow-2xl");
             headerSection.classList.remove(
                 "sm:bg-opacity-80",
-                "sm:backdrop-blur"
+                "sm:backdrop-blur",
             );
             //
             headerSection.classList.add("shadow-none");
             headerSection.classList.add(
                 "sm:bg-opacity-0",
-                "sm:backdrop-blur-none"
+                "sm:backdrop-blur-none",
             );
         } else {
             headerSection.classList.remove("shadow-none");
             headerSection.classList.remove(
                 "sm:bg-opacity-0",
-                "sm:backdrop-blur-none"
+                "sm:backdrop-blur-none",
             );
             //
             headerSection.classList.add("shadow-2xl");
@@ -120,7 +124,7 @@
                 "from-5%",
                 "to-black-90",
                 "to-35%",
-                "border-opacity-30"
+                "border-opacity-30",
             );
 
             if (!isHomePage) {
@@ -129,14 +133,14 @@
                     "sm:bg-opacity-80",
                     "sm:backdrop-blur",
                     "fixed",
-                    "sm:border-b-2"
+                    "sm:border-b-2",
                 );
                 //
                 headerSection.classList.add("shadow-none");
                 headerSection.classList.add(
                     "sm:bg-opacity-0",
                     "sm:backdrop-blur-none",
-                    "absolute"
+                    "absolute",
                 );
                 headerSection.classList.remove("sm:bg-neutral-900");
                 return;
@@ -156,7 +160,7 @@
                 "to-35%",
                 "border-opacity-30",
                 "border-r-2",
-                "border-r-white"
+                "border-r-white",
             );
         }
     }
@@ -194,7 +198,7 @@
                     "border-opacity-30",
                     "border-r-2",
                     "border-r-white",
-                    "fixed"
+                    "fixed",
                 );
 
                 isLeftMenuActive = false;
@@ -207,7 +211,7 @@
                 "from-5%",
                 "to-black-90",
                 "to-35%",
-                "border-opacity-30"
+                "border-opacity-30",
             );
 
             if (!isHomePage) {
@@ -215,14 +219,14 @@
                 headerSection.classList.remove(
                     "sm:bg-opacity-80",
                     "sm:backdrop-blur",
-                    "fixed"
+                    "fixed",
                 );
                 //
                 headerSection.classList.add("shadow-none");
                 headerSection.classList.add(
                     "sm:bg-opacity-0",
                     "sm:backdrop-blur-none",
-                    "absolute"
+                    "absolute",
                 );
                 headerSection.classList.add("sm:bg-neutral-900");
             }
@@ -233,6 +237,10 @@
 
         function onScroll() {
             if (window.innerWidth < 640 || !isHomePage) {
+                return;
+            }
+
+            if (_homeOffsetHeight == null) {
                 return;
             }
 
@@ -248,31 +256,31 @@
                 headerSection.classList.remove("shadow-2xl");
                 headerSection.classList.remove(
                     "sm:bg-opacity-80",
-                    "sm:backdrop-blur"
+                    "sm:backdrop-blur",
                 );
                 //
                 headerSection.classList.add("shadow-none");
                 headerSection.classList.add(
                     "sm:bg-opacity-0",
-                    "sm:backdrop-blur-none"
+                    "sm:backdrop-blur-none",
                 );
             } else {
                 headerSection.classList.remove("shadow-none");
                 headerSection.classList.remove(
                     "sm:bg-opacity-0",
-                    "sm:backdrop-blur-none"
+                    "sm:backdrop-blur-none",
                 );
                 //
                 headerSection.classList.add("shadow-2xl");
                 headerSection.classList.add(
                     "sm:bg-opacity-80",
-                    "sm:backdrop-blur"
+                    "sm:backdrop-blur",
                 );
             }
 
-            if (_homeOffsetHeight == null) {
-                return;
-            }
+            //if (_homeOffsetHeight == null) {
+            //    return;
+            //}
 
             let downScroll = lastScrollPosition <= window.scrollY;
             let upScrollSpeed = lastScrollPosition - window.scrollY;
@@ -305,7 +313,6 @@
     flex flex-col px-4 py-2 sm:p-header sm:flex-row justify-evenly sm:justify-between items-start sm:items-center sm:gap-2
 
     sm:border-b-2 sm:border-b-white sm:border-opacity-0 sm:bg-opacity-80 sm:backdrop-blur sm:border-r-0 sm:-translate-x-0 backdrop-blur
-
     -translate-x-96
     
     transition-all"
@@ -362,6 +369,11 @@
                     <ButtonHeader placeholder={$t("header.buttonArredo")} />
                 {:else if _cornici}
                     <ButtonHeader placeholder={$t("header.buttonCornici")} />
+                {:else if _preventivo}
+                    <ButtonHeader
+                        displayNone={true}
+                        placeholder={$t("header.buttonArredo")}
+                    />
                 {:else}
                     <ButtonHeader placeholder={$t("header.buttonArredo")} />
                 {/if}

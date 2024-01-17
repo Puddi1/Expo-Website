@@ -10,13 +10,13 @@
 </script>
 
 <a
-    class="flex items-center justify-center flex-col w-full sm:w-3/4 h-full"
+    class="flex items-center justify-center flex-col w-full xl:w-3/5 h-full transition-all clickable"
     {href}
     ><div
         class="flex items-center justify-center flex-col gap-5 transition-all hover:shadow-2xl
                 border-l-2 border-b-2 border-white border-opacity-50
-                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl
-                py-4 px-2 sm:px-5"
+                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm
+                px-5 py-12 sm:px-5"
     >
         <div>
             <h1 class="text-3xl font-extrabold">{Title}</h1>

@@ -181,7 +181,7 @@
 >
     <div class="z-40 w-full h-full pt-28 pb-10 px-4 sm:px-16">
         <div
-            class="w-full h-full border-t-2 border-r-2 border-white border-opacity-50 bg-gradient-to-tr sm:bg-gradient-to-bl from-expo-90 sm:from-expo-30 to-black-90 sm:to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm rounded-xl flex flex-col sm:flex-row items-center justify-between gap-5 p-2 px-5 transition-all"
+            class="w-full h-full border-t-2 border-r-2 border-white border-opacity-50 bg-gradient-to-tr sm:bg-gradient-to-bl from-expo-90 sm:from-expo-30 to-black-90 sm:to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-5 p-2 px-5 transition-all"
         >
             <div
                 class="flex flex-col items-center justify-center w-full sm:h-full sm:w-1/4"

@@ -58,6 +58,7 @@ const config = {
                 64: "16rem",
                 96: "24rem",
                 128: "32rem",
+                "half-viewport": "75vh",
             },
             animation: {
                 "enter-alert": "enter-alert 12s linear",
@@ -90,6 +91,7 @@ const config = {
                 "1/5": "20%",
                 "1/6": "16.66666%",
                 "1/20": "5%",
+                "1/40": "2.5%",
             },
             backgroundImage: {
                 light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)",

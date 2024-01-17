@@ -48,10 +48,12 @@
     id="main-home"
 >
     <div
-        class="w-full h-full z-10 flex items-center justify-evenly sm:justify-around flex-col sm:flex-row bg-gradient-to-r sm:bg-gradient-to-tr from-black from-25% to-transparent to-80%"
+        class="w-full h-full z-10
+        flex items-center justify-evenly gap-0 sm:justify-center sm:gap-28 lg:justify-around lg:gap-0 flex-col lg:flex-row
+        bg-gradient-to-r sm:bg-gradient-to-tr from-black from-25% to-transparent to-80%"
     >
         <img
-            class="w-8/12 sm:w-4/12"
+            class="w-8/12 sm:w-6/12 lg:w-4/12"
             src={$t("home.heroImageArredo")}
             alt="Expo Arredo Home Logo"
         />

@@ -29,8 +29,8 @@
     onMount(() => {
         mounted = true;
 
-        homeOffsetHeight.set(home.offsetHeight);
-        window.addEventListener("resize", onResize);
+        //homeOffsetHeight.set(home.offsetHeight);
+        //window.addEventListener("resize", onResize);
 
         function onResize() {
             setOffsetHeight();

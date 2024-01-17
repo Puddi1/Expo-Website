@@ -10,7 +10,7 @@ export const lang: Object = {
         "header.contatta": "Contatta",
 
         "header.buttonArredo": "Preventivo",
-        "header.buttonCornici": "Servizio Cornici",
+        "header.buttonCornici": "Preventivo Cornici",
 
         "home.heroImageArredo": "/home/expoArredoIT.svg",
         "home.heroButtonArredo": "Preventivo",

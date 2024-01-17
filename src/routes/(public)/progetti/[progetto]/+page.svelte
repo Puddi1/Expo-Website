@@ -66,10 +66,10 @@
     onMount(() => {
         window.addEventListener("load", onPageLoaded);
         mounted = true;
-        homeOffsetHeight.set(0);
+        homeOffsetHeight.set(128);
 
         loadingScreenFaviconImagesFrame.classList.add(
-            "animate-loading-spinner"
+            "animate-loading-spinner",
         );
     });
 </script>
