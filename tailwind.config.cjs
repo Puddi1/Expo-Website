@@ -46,6 +46,7 @@ const config = {
                 112: "28rem",
                 108: "27rem",
                 "full-2": "calc(100% - 2px)",
+                "full+22": "calc(100% + 22px)",
             },
             minHeight: {
                 16: "4rem",
@@ -95,9 +96,8 @@ const config = {
             },
             backgroundImage: {
                 light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)",
-                // light: "radial-gradient(farthest-corner at 70% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 80%)", enlarge h to get blur on top
                 "light-sm":
-                    "radial-gradient(farthest-corner at 40% 10%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 2%, rgba(0,0,0,0) 150%)",
+                    "radial-gradient(farthest-corner at 40% 10%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 2%, rgba(0,0,0,0) 150%)",
             },
             boxShadow: {
                 "light-shadow": "0 30px 40px rgba(0,0,0,.1)",

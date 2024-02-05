@@ -28,8 +28,6 @@ export async function POST({ request }: RequestEvent): Promise<Response> {
 
     // Login
 
-    console.log("Where am I?")
-
     // Set cookie on success
     response = {
         success: true,

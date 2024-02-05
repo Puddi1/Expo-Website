@@ -6,6 +6,15 @@ Technologies used: Sveltekit Tailwind Pocketbase Vite.
 
 Docker
 CapRover
+https://www.npmjs.com/package/gsap
+
+## Description
+
+The admin section, both API and FrontEnd pages, was thought to be used as a mean to change and update the website's content. For the moment it is depriciated but not removed, since there might be necessary usage in the future.
+
+The website uses italian a default language, but offers multiple laguages, each laguage has its definitions into: `lang.ts`
+
+
 
 ## Usage
 
