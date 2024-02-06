@@ -30,52 +30,47 @@
 				class="flex flex-row flex-wrap gap-5 justify-center items-center"
 			>
 				<div>
-					<img
-						class="w-20"
-						src="/favicon/expoArredoWhite.svg"
-						alt="Expo Icon"
-					/>
+					{#if _arredo}
+						<a href="/">
+							<img
+								class="w-20 transition-all hover:drop-shadow-expoLight clickable"
+								src="/favicon/expoArredoWhite.svg"
+								alt="Expo Arredo Favicon"
+							/>
+						</a>
+					{:else if _cornici}
+						<a href="/cornici">
+							<img
+								class="w-20 transition-all hover:drop-shadow-expoLight clickable"
+								src="/favicon/expoCorniciWhite.svg"
+								alt="Expo Cornici Favicon"
+							/>
+						</a>
+					{:else}
+						<a href="/">
+							<img
+								class="w-20 transition-all hover:drop-shadow-expoLight clickable"
+								src="/favicon/expoArredoWhite.svg"
+								alt="Expo Favicon"
+							/>
+						</a>
+					{/if}
 				</div>
 				<div class="flex flex-wrap justify-start items-center">
-					<p>
-						Immagina, organizza <br /> e vivi la casa dei tuoi sogni
-					</p>
-				</div>
-			</div>
-
-			<div class="flex flex-wrap px-4 border-l-2 border-l-slate-300">
-				<ul class="flex flex-col flex-wrap gap-5">
 					{#if _arredo}
-						<li class="border-b-2 border-white">
-							{$t("footer.arredo")}
-						</li>
-						<li
-							class="border-b-2 border-transparent transition-all hover:border-white clickable"
-						>
-							<a href="/cornici">{$t("footer.cornici")}</a>
-						</li>
+						<p>
+							Immagina, organizza <br /> e vivi la casa dei tuoi sogni
+						</p>
 					{:else if _cornici}
-						<li
-							class="border-b-2 border-transparent transition-all hover:border-white clickable"
-						>
-							<a href="/">{$t("footer.arredo")}</a>
-						</li>
-						<li class="border-b-2 border-white">
-							{$t("footer.cornici")}
-						</li>
+						<p>
+							Incornicia, ripara <br /> e vivi i quadri dei tuoi sogni
+						</p>
 					{:else}
-						<li
-							class="border-b-2 border-transparent transition-all hover:border-white clickable"
-						>
-							<a href="/">{$t("footer.arredo")}</a>
-						</li>
-						<li
-							class="border-b-2 border-transparent transition-all hover:border-white clickable"
-						>
-							<a href="/cornici">{$t("footer.cornici")}</a>
-						</li>
+						<p>
+							Immagina, organizza <br /> e vivi la casa dei tuoi sogni
+						</p>
 					{/if}
-				</ul>
+				</div>
 			</div>
 
 			<div

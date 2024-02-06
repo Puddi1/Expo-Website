@@ -23,6 +23,9 @@ const config = {
             ],
         },
         extend: {
+            aspectRatio: {
+                "1-2": "1 / 2",
+            },
             rotate: {
                 135: "135deg",
             },
@@ -59,7 +62,8 @@ const config = {
                 64: "16rem",
                 96: "24rem",
                 128: "32rem",
-                "half-viewport": "75vh",
+                "half-viewport": "50vh",
+                "three-quarters-viewport": "75vh",
             },
             animation: {
                 "enter-alert": "enter-alert 12s linear",

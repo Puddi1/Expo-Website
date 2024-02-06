@@ -2,7 +2,6 @@
 	import { onMount } from "svelte";
 	import { t } from "$lib/i18n"; // add
 
-	var usElementsContainer: HTMLElement;
 	var usPairs = [
 		{
 			img: "/background/cucinaHome.png",
@@ -19,17 +18,9 @@
 		},
 	];
 
-	function flipSide() {
-		if (!mounted) {
-			return;
-		}
-	}
-
 	var mounted = false;
 	onMount(() => {
 		mounted = true;
-
-		usElementsContainer.addEventListener("mouseenter", flipSide);
 	});
 </script>
 
@@ -41,10 +32,11 @@
 		class="flex justify-center items-center px-8 py-4 w-full h-full lg:px-16"
 	>
 		<div class="flex justify-center items-center w-full h-full">
-			<ul class="grid grid-cols-1 gap-16 w-full h-full lg:grid-cols-2">
+			<ul
+				class="flex flex-wrap gap-24 justify-center items-center w-full h-full"
+			>
 				<li class="flex justify-center items-center p-2">
 					<div
-						bind:this={usElementsContainer}
 						class="relative w-96 h-96 border-2 border-white sm:w-120 sm:h-120"
 					>
 						<img
@@ -77,7 +69,6 @@
 
 				<li class="flex justify-center items-center p-2">
 					<div
-						bind:this={usElementsContainer}
 						class="relative w-96 h-96 border-2 border-white sm:w-120 sm:h-120"
 					>
 						<img
@@ -108,9 +99,10 @@
 					</div>
 				</li>
 
-				<li class="flex justify-center items-center p-2">
+				<li
+					class="flex order-4 justify-center items-center p-2 lg:order-3"
+				>
 					<div
-						bind:this={usElementsContainer}
 						class="relative w-96 h-96 border-2 border-white sm:w-120 sm:h-120"
 					>
 						<img
@@ -141,9 +133,10 @@
 					</div>
 				</li>
 
-				<li class="flex justify-center items-center p-2">
+				<li
+					class="flex order-3 justify-center items-center p-2 lg:order-4"
+				>
 					<div
-						bind:this={usElementsContainer}
 						class="relative w-96 h-96 border-2 border-white sm:w-120 sm:h-120"
 					>
 						<img

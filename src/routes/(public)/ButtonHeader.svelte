@@ -13,6 +13,9 @@
 		if (buttonArrow == null) return;
 
 		if (displayNone) {
+			buttonHeader.classList.remove("w-32");
+			buttonHeader.classList.add("w-6");
+
 			buttonHeader.classList.add("bg-transparent");
 			buttonHeader.classList.add("text-transparent");
 			buttonHeader.classList.add("pointer-events-none");
@@ -23,6 +26,9 @@
 			buttonArrow.classList.add("hidden");
 			return;
 		}
+
+		buttonHeader.classList.remove("w-6");
+		buttonHeader.classList.add("w-32");
 
 		buttonHeader.classList.remove("bg-transparent");
 		buttonHeader.classList.remove("text-transparent");

@@ -1,4 +1,6 @@
 <script lang="ts">
+	// TODO: Add content and translations
+
 	import { onMount } from "svelte";
 	import { homeOffsetHeight } from "$lib/index";
 	import { t } from "$lib/i18n"; // add
@@ -7,7 +9,6 @@
 	import { headerList } from "$lib/index";
 	$: headerList.set([
 		["/cornici", $t("header.cornici")],
-		["/servizio", $t("header.servizio")],
 		["/progetti", $t("header.progetti")],
 		["/#noi", $t("header.noi")],
 		["/#brands", $t("header.brands")],
@@ -48,7 +49,7 @@
 	var mounted = false;
 	onMount(() => {
 		mounted = true;
-		homeOffsetHeight.set(0);
+		homeOffsetHeight.set(120);
 	});
 </script>
 
@@ -142,10 +143,9 @@
 	</div>
 </main>
 
-<!-- Example of one of the projects? -->
 <section
 	id="progetti"
-	class="flex items-center justify-center h-full w-screen bg-gradient-to-b from-expo from-5% to-black to-99% py-24"
+	class="flex items-center justify-center h-full w-screen bg-gradient-to-b from-expo from-5% to-black to-99% py-24 pt-0"
 >
 	<div
 		class="flex flex-col gap-10 justify-center items-center p-10 w-full h-full sm:flex-row"
