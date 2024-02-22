@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from "$lib/i18n"; // add
+	import { t } from "$lib/languages/i18n"; // add
 
 	import ProjectCard from "$lib/ProjectCard.svelte";
 </script>
@@ -50,7 +50,10 @@
 						</div>
 
 						<div class="flex justify-center items-center h-full">
-							<img src="/button/Vector.svg" alt="Button Arrow" />
+							<img
+								src="/button/Vector.svg"
+								alt="Button Arrow"
+							/>
 						</div>
 					</button>
 				</a>

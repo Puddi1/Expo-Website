@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { homeOffsetHeight } from "$lib/index";
-	import { t } from "$lib/i18n"; // Add
+	import { t } from "$lib/languages/i18n"; // Add
 	import { headerList } from "$lib/index";
 	$: headerList.set([
 		["/", $t("header.arredo")],
@@ -50,9 +50,6 @@
 
 	var vaultImage: HTMLImageElement;
 	var vaultFrameImage: HTMLImageElement;
-	const MAX_OFFSET = 100;
-	const MIN_OFFSET = 0;
-	var offset = 0;
 	function moveLockFrame(ev: MouseEvent) {
 		let relatedTarget = ev.relatedTarget as HTMLElement;
 		let relatedTargetId = relatedTarget.id;
@@ -137,7 +134,10 @@
 			bind:this={safeVideo}
 			class="object-cover z-0 w-full border-2 border-white shadow-dark-theater"
 		>
-			<source src="/video/cats.mp4" type="video/mp4" />
+			<source
+				src="/video/cats.mp4"
+				type="video/mp4"
+			/>
 			<track kind="captions" />
 		</video>
 	</div>
@@ -225,7 +225,10 @@
 				/>
 			</div>
 
-			<ButtonMiddle placeholder="Acquista" route="/preventivo" />
+			<ButtonMiddle
+				placeholder="Acquista"
+				route="/preventivo"
+			/>
 		</div>
 	</div>
 </section>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from "$lib/i18n";
+	import { t } from "$lib/languages/i18n";
 	import { onMount } from "svelte";
 
 	var lightLamp: HTMLElement;
@@ -268,7 +268,11 @@
 							src="/background/gatto.jpeg"
 							alt=""
 						/>
-						<a class="z-50" href="expoarredo.ch" target="_blank">
+						<a
+							class="z-50"
+							href="expoarredo.ch"
+							target="_blank"
+						>
 							<img
 								bind:this={i.imel}
 								class="w-24 h-24 opacity-20 transition-all lg:w-28 lg:h-28 hover:opacity-100"

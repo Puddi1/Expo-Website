@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { t } from "$lib/i18n"; // add
+	import { t } from "$lib/languages/i18n"; // add
 
 	var usPairs = [
 		{

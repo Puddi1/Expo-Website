@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from "$lib/i18n";
+	import { t } from "$lib/languages/i18n";
 	import { arredo, cornici } from "$lib/index";
 	var _arredo: boolean = false;
 	arredo.subscribe((e) => {
@@ -18,13 +18,13 @@
 </script>
 
 <footer
-	class="flex z-50 justify-center items-center px-10 py-5 w-full text-white bg-expo"
+	class="flex z-50 justify-center items-center px-10 py-8 w-full text-white bg-expo border-t-2 border-white"
 >
 	<div
 		class="flex flex-col flex-wrap gap-5 justify-center items-center w-full"
 	>
 		<div
-			class="flex flex-row flex-wrap gap-5 justify-around items-center w-full"
+			class="flex flex-row flex-wrap gap-5 justify-around items-start w-full"
 		>
 			<div
 				class="flex flex-row flex-wrap gap-5 justify-center items-center"
@@ -104,7 +104,6 @@
 					<li
 						class="flex flex-row flex-wrap gap-3 justify-center items-center"
 					>
-						<img src="/favicon/envelope.svg" alt="Envelope icon" />
 						<a
 							class="border-b-2 border-transparent transition-all clickable hover:border-b-white hover:border-b-2"
 							href="mailto:email@example.com"
@@ -114,7 +113,6 @@
 					<li
 						class="flex flex-row flex-wrap gap-3 justify-center items-center"
 					>
-						<img src="/favicon/phone.svg" alt="Phone icon" />
 						<a
 							class="border-b-2 border-transparent transition-all clickable hover:border-b-white hover:border-b-2"
 							href="tel:+41916461047">+41 91 646 10 47</a
@@ -123,7 +121,6 @@
 					<li
 						class="flex flex-row flex-wrap gap-3 justify-center items-center"
 					>
-						<img src="/favicon/mapMaker.svg" alt="Map Maker icon" />
 						<p>
 							{$t("footer.via")} Vignalunga, 2c<br />6850
 							Mendrisio - Svizzera
@@ -132,7 +129,6 @@
 					<li
 						class="flex flex-row flex-wrap gap-3 justify-center items-center"
 					>
-						<img src="/favicon/clock.svg" alt="Map Maker icon" />
 						<p>
 							{$t("footer.lunVen")} <br /> 9.00 - 12.00 / 14.00 -
 							18.00 <br />

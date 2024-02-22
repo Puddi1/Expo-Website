@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from "$lib/i18n"; // add
+	import { t } from "$lib/languages/i18n"; // add
 
 	export var href: any = "/progetti";
 	export var Title: any = "Titolo";

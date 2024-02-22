@@ -2,7 +2,7 @@
 	import { onMount } from "svelte";
 	import ButtonHome from "../ButtonHome.svelte";
 
-	import { t } from "$lib/i18n";
+	import { t } from "$lib/languages/i18n";
 
 	import HomeSafeFramework from "./HomeSafeFramework.svelte";
 	import HomeService from "./HomeService.svelte";
@@ -46,7 +46,10 @@
 		loop
 		muted
 	>
-		<source src="/video/cats.mp4" type="video/mp4" />
+		<source
+			src="/video/cats.mp4"
+			type="video/mp4"
+		/>
 		<track kind="captions" />
 	</video>
 </main>

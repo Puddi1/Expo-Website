@@ -3,7 +3,7 @@
 
 	import { onMount } from "svelte";
 	import { homeOffsetHeight } from "$lib/index";
-	import { t } from "$lib/i18n"; // add
+	import { t } from "$lib/languages/i18n"; // add
 	import ProjectCard from "$lib/ProjectCard.svelte";
 
 	import { headerList } from "$lib/index";
@@ -191,7 +191,10 @@
 						</div>
 
 						<div class="flex justify-center items-center h-full">
-							<img src="/button/Vector.svg" alt="Button Arrow" />
+							<img
+								src="/button/Vector.svg"
+								alt="Button Arrow"
+							/>
 						</div>
 					</button>
 				</a>

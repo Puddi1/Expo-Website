@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { homeOffsetHeight } from "$lib/index";
-	import { t } from "$lib/i18n";
+	import { t } from "$lib/languages/i18n";
 	import { headerList } from "$lib/index";
 
 	$: headerList.set([
@@ -52,7 +52,7 @@
 		// Change juxtapose visibility and bookeeping
 		let children = juxtaposeElementsWrapper.children;
 		let previousJuxtaposeElement = children.namedItem(
-			`juxtapose-wrapper-${previousJuxtaposeElementIndex}`,
+			`juxtapose-wrapper-${previousJuxtaposeElementIndex}`
 		);
 		let juxtaposeElement = children.namedItem(`juxtapose-wrapper-${id}`);
 		previousJuxtaposeElementIndex = id;
@@ -104,7 +104,7 @@
 		homeOffsetHeight.set(128);
 
 		loadingScreenFaviconImagesFrame.classList.add(
-			"animate-loading-spinner",
+			"animate-loading-spinner"
 		);
 
 		setTimeout(() => {

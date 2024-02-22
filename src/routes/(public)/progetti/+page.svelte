@@ -2,7 +2,7 @@
 	import { onMount } from "svelte";
 	import { homeOffsetHeight } from "$lib/index";
 
-	import { t } from "$lib/i18n"; // add
+	import { t } from "$lib/languages/i18n"; // add
 	import { headerList } from "$lib/index";
 	import ProjectCardGrid from "$lib/ProjectCardGrid.svelte";
 	$: headerList.set([
@@ -93,7 +93,7 @@
 		fn: (a: any, b: any) => boolean,
 		a: Array<any>,
 		idx: number,
-		sIdx: number,
+		sIdx: number
 	) {
 		let s = a;
 
@@ -212,7 +212,11 @@
 			class="flex flex-col gap-10 justify-center items-center sm:grid-cols-2 sm:grid lg:grid lg:grid-cols-3"
 		>
 			{#each Projects as p}
-				<ProjectCardGrid href={p[0]} Title={p[1]} Statistics={p[3]} />
+				<ProjectCardGrid
+					href={p[0]}
+					Title={p[1]}
+					Statistics={p[3]}
+				/>
 			{/each}
 		</div>
 	</div>
