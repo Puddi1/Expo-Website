@@ -24,7 +24,7 @@
 		class="flex flex-col flex-wrap gap-5 justify-center items-center w-full"
 	>
 		<div
-			class="flex flex-row flex-wrap gap-5 justify-around items-start w-full"
+			class="flex flex-row flex-wrap gap-5 justify-start sm:justify-around items-start w-full"
 		>
 			<div
 				class="flex flex-row flex-wrap gap-5 justify-center items-center"

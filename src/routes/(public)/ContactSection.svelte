@@ -3,7 +3,7 @@
 	import { t } from "$lib/languages/i18n";
 	import { popUp } from "$lib/index";
 
-	export var Message = false;
+	export var Message = true;
 
 	// Manage form request
 	var messageForm: HTMLElement;
@@ -67,16 +67,16 @@
 	});
 </script>
 
-<section class="text-black bg-white relative overflow-hidden z-0">
+<section
+	class="text-black bg-white relative overflow-hidden z-0 min-h-three-quarters-viewport flex items-center justify-center"
+>
 	<div
-		class="relative flex flex-col lg:flex-row items-center justify-around gap-10 lg:gap-0 px-4 py-8"
+		class="relative flex flex-col lg:flex-row items-center justify-around w-full h-full gap-14 lg:gap-0 px-5 sm:px-12 py-8"
 	>
-		<div
-			class="flex flex-row items-center justify-center lg:order-1 order-2 lg:w-4/6"
-		>
-			<ul class="flex flex-col items-center justify-center gap-16">
+		<div class="flex flex-col items-center justify-center lg:w-3/6">
+			<ul class="flex flex-col items-center justify-center gap-20 w-full">
 				<li
-					class="flex flex-row items-center justify-center gap-10 w-full"
+					class="flex flex-col sm:flex-row items-center justify-center gap-10 w-full"
 				>
 					<img
 						class="w-80"
@@ -84,21 +84,21 @@
 						alt="Expo Arredo Outside View"
 					/>
 					<p
-						class="flex items-center justify-center flex-wrap w-auto whitespace-pre-line text-3xl font-bold max-w-md"
+						class="flex items-center justify-center w-full flex-wrap whitespace-pre-line text-3xl font-bold"
 					>
 						{$t("contact.stabile")}
 					</p>
 				</li>
 
-				<li class="w-full h-full">
+				<li class="w-full h-full flex items-center justify-center">
 					<ul
-						class="grid items-center justify-center grid-cols-2 gap-5"
+						class="sm:grid flex flex-col items-center justify-center sm:grid-cols-2 gap-5 sm:gap-14"
 					>
 						<li
-							class="flex flex-row flex-wrap items-center justify-start gap-3"
+							class="flex flex-row flex-wrap items-center justify-start gap-3 w-full"
 						>
 							<img
-								class="w-6 fill-expo"
+								class="w-8"
 								src="/favicon/envelope.svg"
 								alt="Envelope icon"
 							/>
@@ -109,10 +109,10 @@
 							>
 						</li>
 						<li
-							class="flex flex-row flex-wrap items-center justify-start gap-3"
+							class="flex flex-row flex-wrap items-center justify-start gap-3 w-full"
 						>
 							<img
-								class="w-6"
+								class="w-8"
 								src="/favicon/phone.svg"
 								alt="Phone icon"
 							/>
@@ -122,10 +122,10 @@
 							>
 						</li>
 						<li
-							class="flex flex-row flex-wrap items-center justify-start gap-3"
+							class="flex flex-row flex-wrap items-center justify-start gap-3 w-full"
 						>
 							<img
-								class="w-6"
+								class="w-8"
 								src="/favicon/mapMaker.svg"
 								alt="Map Maker icon"
 							/>
@@ -135,10 +135,10 @@
 							</p>
 						</li>
 						<li
-							class="flex flex-row flex-wrap items-center justify-start gap-3"
+							class="flex flex-row flex-wrap items-center justify-start gap-3 w-full"
 						>
 							<img
-								class="w-6"
+								class="w-8"
 								src="/favicon/clock.svg"
 								alt="Map Maker icon"
 							/>
@@ -154,26 +154,18 @@
 			</ul>
 
 			{#if Message}
-				<div
-					class="w-10/12 h-full
-                border-t-2 border-r-2 border-white border-opacity-50
-                bg-gradient-to-bl from-expo-30 to-black-60 to-60% drop-shadow-2xl backdrop-blur-sm
-                sm:-translate-x-16
-                -translate-y-1/40
-                lg:-translate-y-1/4
-                py-4 px-5"
-				>
+				<div class="w-full h-full flex items-center justify-center">
 					<form
 						bind:this={messageForm}
-						class="flex flex-col justify-center items-center gap-5 px-5 py-12"
+						class="flex flex-col justify-center items-center w-10/12 gap-5 px-5 py-12"
 					>
-						<div>
-							<h1 class="text-3xl font-extrabold">
+						<div class="flex w-full items-start justify-start">
+							<h1 class="text-3xl font-bold">
 								{$t("contact.formMessage")}
 							</h1>
 						</div>
 						<fieldset
-							class="h-full w-full flex flex-col items-center justify-center gap-5"
+							class="flex flex-col items-center justify-center w-full gap-5"
 						>
 							<div
 								class="h-full w-full flex flex-col justify-center items-start"
@@ -181,16 +173,11 @@
 								<div
 									class="flex flex-col items-start justify-center gap-1 w-full"
 								>
-									<p>
+									<p class="text-xl font-medium">
 										{$t("contact.formTitle")}
 									</p>
 									<input
-										class="
-                                bg-transparent border-2 border-white rounded-sm
-                                w-full
-                                focus:outline-none focus:outline-expo
-                                px-1 py-1
-                                transition-all"
+										class="w-full input"
 										type="text"
 										name="title"
 										id="Title"
@@ -203,7 +190,7 @@
 								<div
 									class="flex flex-col items-start justify-center gap-1 w-full"
 								>
-									<p>Email</p>
+									<p class="text-xl font-medium">Email</p>
 									<input
 										class="input w-full"
 										type="email"
@@ -218,7 +205,9 @@
 								<div
 									class="flex flex-col items-start justify-center gap-1 w-full"
 								>
-									<p>{$t("contact.formComment")}</p>
+									<p class="text-xl font-medium">
+										{$t("contact.formComment")}
+									</p>
 									<textarea
 										class="input h-32 flex flex-col items-start justify-start leading-4 w-full"
 										name="comment"
@@ -231,10 +220,10 @@
 						<div>
 							<button
 								type="submit"
-								class="bg-expo px-2 py-3 flex flex-row justify-center items-center gap-2 shadow-2xl hover:ring-2 ring-white transition-all h-12 w-32"
+								class="clickable bg-expo px-2 py-3 flex flex-row justify-center items-center gap-2 shadow-2xl transition-all h-12 w-32"
 							>
 								<div
-									class="flex justify-center items-center h-full uppercase font-button tracking-wider font-extrabold text-xs"
+									class="flex justify-center items-center h-full uppercase font-button tracking-wider font-extrabold text-xs text-white"
 								>
 									{$t("contact.buttonPlaceholder")}
 								</div>
@@ -255,7 +244,7 @@
 		</div>
 
 		<div
-			class="flex items-center justify-center shadow-2xl lg:order-2 order-1 w-3/4 lg:w-2/6 h-120"
+			class="flex items-center justify-center shadow-2xl w-10/12 sm:w-3/4 lg:w-2/6 min-h-128"
 		>
 			<iframe
 				class="h-full w-full"
