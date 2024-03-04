@@ -23,6 +23,18 @@ const config = {
             ],
         },
         extend: {
+            letterSpacing: {
+                "2widest": "0.2em",
+            },
+            fontSize: {
+                "7xl": "4.2rem",
+                "10xl": "6rem",
+                "20xl": "12rem",
+            },
+            spacing: {
+                "1/6": "16.6666%",
+                "1/8": "12.5%"
+            },
             aspectRatio: {
                 "1-2": "1 / 2",
             },

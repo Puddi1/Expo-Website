@@ -74,7 +74,9 @@
 		class="relative flex flex-col lg:flex-row items-center justify-around w-full h-full gap-14 lg:gap-0 px-5 sm:px-12 py-8"
 	>
 		<div class="flex flex-col items-center justify-center lg:w-3/6">
-			<ul class="flex flex-col items-center justify-center gap-20 w-full">
+			<ul
+				class="flex flex-col items-center justify-center gap-12 sm:gap-20 w-full"
+			>
 				<li
 					class="flex flex-col sm:flex-row items-center justify-center gap-10 w-full"
 				>
@@ -84,7 +86,7 @@
 						alt="Expo Arredo Outside View"
 					/>
 					<p
-						class="flex items-center justify-center w-full flex-wrap whitespace-pre-line text-3xl font-bold"
+						class="flex items-center justify-center w-full flex-wrap whitespace-pre-line text-3xl font-bold text-center sm:text-left"
 					>
 						{$t("contact.stabile")}
 					</p>

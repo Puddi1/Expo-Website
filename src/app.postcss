@@ -3,8 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body { 
+  margin:0; 
+  padding:0; 
+  height:100%; 
+}
+
 .clickable {
-    @apply hover:cursor-pointer active:scale-85;
+    @apply hover:cursor-pointer active:scale-85 transition-all;
 }
 
 .input {
